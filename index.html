@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Floating Sticky Navbar</title>
+    <style>
+      :root {
+        --primary-dark: #27374d;
+        --primary-medium: #526d82;
+        --primary-light: #9db2bf;
+        --primary-lightest: #dde6ed;
+      }
+
+      /* Dark mode variables */
+      [data-theme="dark"] {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --text-secondary: #cccccc;
+        --navbar-bg: rgba(255, 255, 255, 0.1);
+        --navbar-border: rgba(255, 255, 255, 0.2);
+        --gradient-bg: linear-gradient(
+          135deg,
+          #2d3748 0%,
+          #1a202c 50%,
+          #2d3748 100%
+        );
+      }
+
+      [data-theme="light"] {
+        --bg-color: #ffffff;
+        --text-color: var(--primary-dark);
+        --text-secondary: var(--primary-medium);
+        --navbar-bg: rgba(0, 0, 0, 0.1);
+        --navbar-border: rgba(0, 0, 0, 0.1);
+        --gradient-bg: linear-gradient(
+          135deg,
+          var(--primary-lightest) 0%,
+          #ffffff 50%,
+          var(--primary-lightest) 100%
+        );
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Noto Sans;
+        line-height: 1.6;
+        background: var(--gradient-bg);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        min-height: 100vh;
+      }
+
+      /* Sticky Navbar */
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navbar-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 50px;
+        padding: 12px 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--navbar-border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        max-width: 90vw;
+        width: fit-content;
+      }
+
+      .navbar:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      /* Logo Section */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links li a:hover {
+        color: var(--primary-dark);
+        background: var(--primary-lightest);
+        transform: translateY(-1px);
+      }
+
+      .nav-links li a.active {
+        color: var(--text-color);
+        background: var(--primary-light);
+      }
+
+      /* Dark Mode Toggle */
+      .dark-mode-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+      }
+
+      .dark-mode-toggle:hover {
+        background: var(--primary-lightest);
+        transform: scale(1.1);
+        color: var(--text-color);
+      }
+
+      /* Sign Up Button */
+      .signup-btn {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 20px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        min-width: auto;
+        white-space: nowrap;
+      }
+
+      .signup-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(39, 55, 77, 0.3);
+        background: linear-gradient(
+          135deg,
+          var(--primary-medium),
+          var(--primary-light)
+        );
+      }
+
+      .signup-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Mobile Menu Toggle */
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-toggle:hover {
+        color: var(--text-color);
+        transform: scale(1.1);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(157, 178, 191, 0.2) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(82, 109, 130, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 60%,
+            rgba(221, 230, 237, 0.3) 0%,
+            transparent 50%
+          );
+        overflow: hidden;
+      }
+
+      /* Floating Dots Background */
+      .floating-dots {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .dot:nth-child(1) {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .dot:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-medium);
+        top: 60%;
+        left: 20%;
+        animation-delay: 2s;
+      }
+
+      .dot:nth-child(3) {
+        width: 10px;
+        height: 10px;
+        background: var(--primary-lightest);
+        top: 30%;
+        right: 15%;
+        animation-delay: 4s;
+      }
+
+      .dot:nth-child(4) {
+        width: 7px;
+        height: 7px;
+        background: var(--primary-light);
+        top: 70%;
+        right: 30%;
+        animation-delay: 1s;
+      }
+
+      .dot:nth-child(5) {
+        width: 9px;
+        height: 9px;
+        background: var(--primary-medium);
+        top: 15%;
+        left: 50%;
+        animation-delay: 3s;
+      }
+
+      .dot:nth-child(6) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-light);
+        top: 80%;
+        left: 70%;
+        animation-delay: 5s;
+      }
+
+      .dot:nth-child(7) {
+        width: 4px;
+        height: 4px;
+        background: var(--primary-medium);
+        top: 25%;
+        left: 75%;
+        animation-delay: 1.5s;
+      }
+
+      .dot:nth-child(8) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-lightest);
+        top: 45%;
+        left: 5%;
+        animation-delay: 3.5s;
+      }
+
+      .dot:nth-child(9) {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        top: 85%;
+        left: 25%;
+        animation-delay: 2.5s;
+      }
+
+      .dot:nth-child(10) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-medium);
+        top: 10%;
+        right: 40%;
+        animation-delay: 4.5s;
+      }
+
+      .dot:nth-child(11) {
+        width: 7px;
+        height: 7px;
+        background: var(--primary-lightest);
+        top: 55%;
+        right: 10%;
+        animation-delay: 0.5s;
+      }
+
+      .dot:nth-child(12) {
+        width: 9px;
+        height: 9px;
+        background: var(--primary-light);
+        top: 35%;
+        left: 30%;
+        animation-delay: 5.5s;
+      }
+
+      .dot:nth-child(13) {
+        width: 4px;
+        height: 4px;
+        background: var(--primary-medium);
+        top: 75%;
+        right: 55%;
+        animation-delay: 1.8s;
+      }
+
+      .dot:nth-child(14) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-lightest);
+        top: 40%;
+        right: 25%;
+        animation-delay: 3.8s;
+      }
+
+      .dot:nth-child(15) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-light);
+        top: 90%;
+        left: 45%;
+        animation-delay: 2.8s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.7;
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-10px) translateX(-15px);
+          opacity: 0.8;
+        }
+        75% {
+          transform: translateY(-30px) translateX(5px);
+          opacity: 1;
+        }
+      }
+
+      .hero-content {
+        max-width: 800px;
+        color: var(--text-color);
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: var(--text-color);
+        min-height: 1.2em;
+      }
+
+      /* Typing Effect */
+      .typing-text {
+        border-right: 3px solid var(--primary-medium);
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          border-color: var(--primary-medium);
+        }
+        51%,
+        100% {
+          border-color: transparent;
+        }
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        opacity: 0.8;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--text-secondary);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-btn {
+        padding: 14px 32px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        min-width: 160px;
+      }
+
+      .hero-btn.primary {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        box-shadow: 0 6px 20px rgba(39, 55, 77, 0.2);
+      }
+
+      .hero-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(39, 55, 77, 0.3);
+      }
+
+      .hero-btn.secondary {
+        background: var(--primary-dark);
+        color: var(--text-color);
+        border: 2px solid var(--primary-dark);
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-btn.secondary:hover {
+        transform: translateY(-3px);
+        background: var(--primary-light);
+        border-color: var(--primary-medium);
+        box-shadow: 0 6px 20px rgba(39, 55, 77, 0.15);
+      }
+
+      /* Responsive Hero */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+          margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-btn {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 0;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-brand {
+        max-width: 300px;
+      }
+
+      .footer-brand .logo {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-brand .logo-icon {
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+      }
+
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .social-link:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      .footer-column h4 {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 12px;
+      }
+
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary-light);
+        padding-left: 5px;
+      }
+
+      .footer-newsletter {
+        margin-top: 20px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .newsletter-btn {
+        padding: 12px 24px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+        color: var(--primary-dark);
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 178, 191, 0.3);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--primary-light);
+      }
+
+      /* Footer Responsive */
+      @media (max-width: 768px) {
+        .footer-main {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+        }
+
+        .footer-brand {
+          max-width: none;
+        }
+
+        .footer-social {
+          justify-content: center;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          transform: none;
+          max-width: none;
+          width: calc(100% - 30px);
+          padding: 10px 20px;
+        }
+
+        .navbar:hover {
+          transform: translateY(-2px);
+        }
+
+        .nav-container {
+          gap: 20px;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--navbar-bg);
+          backdrop-filter: blur(20px);
+          border-radius: 20px;
+          margin-top: 10px;
+          padding: 20px;
+          flex-direction: column;
+          gap: 10px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          border: 1px solid var(--navbar-border);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .nav-links.active {
+          display: flex;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .content h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1rem;
+        }
+
+        .signup-btn {
+          padding: 8px 16px;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Floating Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <div class="logo-icon">B</div>
+          <span>Brand</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileToggle">☰</button>
+
+        <!-- Dark Mode Toggle -->
+        <button class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Floating Dots Background -->
+      <div class="floating-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1><span class="typing-text" id="typingText"></span></h1>
+        <p>
+          We help ambitious teams and individuals create exceptional digital
+          experiences that drive growth, engagement, and lasting impact in
+          today's connected world.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="hero-btn primary">Get Started</a>
+          <a href="#" class="hero-btn secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-main">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <div class="logo-icon">B</div>
+              <span>Brand</span>
+            </a>
+            <p>
+              We help ambitious teams and individuals create exceptional digital
+              experiences that drive growth and lasting impact.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link">📘</a>
+              <a href="#" class="social-link">🐦</a>
+              <a href="#" class="social-link">📷</a>
+              <a href="#" class="social-link">💼</a>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </div>
+
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Digital Marketing</a></li>
+              <li><a href="#">Consulting</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Case Studies</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter Column -->
+          <div class="footer-column">
+            <h4>Stay Updated</h4>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+              "
+            >
+              Subscribe to our newsletter for the latest updates and insights.
+            </p>
+            <div class="newsletter-form">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Enter your email"
+              />
+              <button class="newsletter-btn">Subscribe</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Brand. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Newsletter Subscription
+      const newsletterForm = document.querySelector(".newsletter-form");
+      const newsletterInput = document.querySelector(".newsletter-input");
+      const newsletterBtn = document.querySelector(".newsletter-btn");
+
+      newsletterBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = newsletterInput.value.trim();
+
+        if (email && email.includes("@")) {
+          newsletterBtn.textContent = "Subscribed!";
+          newsletterBtn.style.background =
+            "linear-gradient(135deg, #10b981, #059669)";
+          newsletterInput.value = "";
+
+          setTimeout(() => {
+            newsletterBtn.textContent = "Subscribe";
+            newsletterBtn.style.background =
+              "linear-gradient(135deg, var(--primary-light), var(--primary-medium))";
+          }, 2000);
+        } else {
+          newsletterInput.style.borderColor = "#ef4444";
+          setTimeout(() => {
+            newsletterInput.style.borderColor = "transparent";
+          }, 1000);
+        }
+      });
+
+      // Dark Mode Toggle Functionality
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem("theme") || "light";
+      body.setAttribute("data-theme", currentTheme);
+
+      // Update toggle button icon
+      function updateToggleIcon(theme) {
+        darkModeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      }
+
+      updateToggleIcon(currentTheme);
+
+      darkModeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateToggleIcon(newTheme);
+      });
+
+      // Typing Effect
+      const texts = [
+        "Transform Your Ideas Into Reality",
+        "Create Amazing Digital Experiences",
+        "Build The Future Together",
+        "Innovation Starts Here",
+      ];
+
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingElement = document.getElementById("typingText");
+
+      function typeText() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+          typingElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(typeText, 500);
+            return;
+          }
+        } else {
+          typingElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+
+          if (charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeText, 2000);
+            return;
+          }
+        }
+
+        setTimeout(typeText, isDeleting ? 50 : 100);
+      }
+
+      // Start typing effect when page loads
+      setTimeout(typeText, 1000);
+
+      // Mobile menu toggle functionality
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      navLinks.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".navbar")) {
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // Add scroll effect to navbar
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        const currentTheme = body.getAttribute("data-theme");
+
+        if (window.scrollY > 100) {
+          if (currentTheme === "dark") {
+            navbar.style.background = "rgba(255, 255, 255, 0.15)";
+            navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.3)";
+          } else {
+            navbar.style.background = "rgba(255, 255, 255, 0.95)";
+            navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.15)";
+          }
+        } else {
+          navbar.style.background =
+            currentTheme === "dark"
+              ? "rgba(255, 255, 255, 0.1)"
+              : "rgba(0, 0, 0, 0.1)";
+          navbar.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.1)";
+        }
+      });
+
+      // Active link highlighting
+      const navLinksElements = document.querySelectorAll(".nav-links a");
+      navLinksElements.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          navLinksElements.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
