@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Our Services - Professional Digital Solutions</title>
+    <style>
+      :root {
+        --primary-dark: #27374d;
+        --primary-medium: #526d82;
+        --primary-light: #9db2bf;
+        --primary-lightest: #dde6ed;
+        --accent-color: #4f46e5;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+      }
+
+      /* Dark mode variables */
+      [data-theme="dark"] {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --text-secondary: #cccccc;
+        --navbar-bg: rgba(26, 26, 26, 0.7);
+        --navbar-border: rgba(255, 255, 255, 0.1);
+        --gradient-bg: linear-gradient(
+          135deg,
+          #1a202c 0%,
+          #12151a 50%,
+          #1a202c 100%
+        );
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-hover-bg: rgba(255, 255, 255, 0.08);
+        --border-color: rgba(255, 255, 255, 0.1);
+        --section-bg: rgba(255, 255, 255, 0.03);
+        --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
+        --nav-link-active-bg: rgba(255, 255, 255, 0.2);
+        --price-amount-color: var(--primary-lightest);
+      }
+
+      [data-theme="light"] {
+        --bg-color: #ffffff;
+        --text-color: var(--primary-dark);
+        --text-secondary: var(--primary-medium);
+        --navbar-bg: rgba(255, 255, 255, 0.7);
+        --navbar-border: rgba(0, 0, 0, 0.08);
+        --gradient-bg: linear-gradient(
+          135deg,
+          #f9fafb 0%,
+          #ffffff 50%,
+          #f9fafb 100%
+        );
+        --card-bg: #ffffff;
+        --card-hover-bg: #ffffff;
+        --border-color: rgba(39, 55, 77, 0.1);
+        --section-bg: rgba(39, 55, 77, 0.02);
+        --nav-link-hover-bg: var(--primary-lightest);
+        --nav-link-active-bg: var(--primary-light);
+        --price-amount-color: var(--primary-dark);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Noto Sans", sans-serif;
+        line-height: 1.6;
+        background: var(--gradient-bg);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Floating Dots Background */
+      .floating-dots {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        animation: float-dots 12s ease-in-out infinite;
+        opacity: 0;
+      }
+
+      .dot:nth-child(1) {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .dot:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-medium);
+        top: 60%;
+        left: 20%;
+        animation-delay: 2s;
+      }
+      .dot:nth-child(3) {
+        width: 10px;
+        height: 10px;
+        background: var(--primary-lightest);
+        top: 30%;
+        right: 15%;
+        animation-delay: 4s;
+      }
+      .dot:nth-child(4) {
+        width: 7px;
+        height: 7px;
+        background: var(--primary-light);
+        top: 70%;
+        right: 30%;
+        animation-delay: 1s;
+      }
+      .dot:nth-child(5) {
+        width: 9px;
+        height: 9px;
+        background: var(--primary-medium);
+        top: 15%;
+        left: 50%;
+        animation-delay: 3s;
+      }
+      .dot:nth-child(6) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-light);
+        top: 80%;
+        left: 70%;
+        animation-delay: 5s;
+      }
+      .dot:nth-child(7) {
+        width: 4px;
+        height: 4px;
+        background: var(--primary-medium);
+        top: 25%;
+        left: 75%;
+        animation-delay: 1.5s;
+      }
+      .dot:nth-child(8) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-lightest);
+        top: 45%;
+        left: 5%;
+        animation-delay: 3.5s;
+      }
+      .dot:nth-child(9) {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        top: 85%;
+        left: 25%;
+        animation-delay: 2.5s;
+      }
+      .dot:nth-child(10) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-medium);
+        top: 10%;
+        right: 40%;
+        animation-delay: 4.5s;
+      }
+      .dot:nth-child(11) {
+        width: 7px;
+        height: 7px;
+        background: var(--primary-lightest);
+        top: 55%;
+        right: 10%;
+        animation-delay: 0.5s;
+      }
+      .dot:nth-child(12) {
+        width: 9px;
+        height: 9px;
+        background: var(--primary-light);
+        top: 35%;
+        left: 30%;
+        animation-delay: 5.5s;
+      }
+      .dot:nth-child(13) {
+        width: 4px;
+        height: 4px;
+        background: var(--primary-medium);
+        top: 75%;
+        right: 55%;
+        animation-delay: 1.8s;
+      }
+      .dot:nth-child(14) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-lightest);
+        top: 40%;
+        right: 25%;
+        animation-delay: 3.8s;
+      }
+      .dot:nth-child(15) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-light);
+        top: 90%;
+        left: 45%;
+        animation-delay: 2.8s;
+      }
+
+      @keyframes float-dots {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+          opacity: 0;
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-10px) translateX(-15px);
+          opacity: 0.5;
+        }
+        75% {
+          transform: translateY(-30px) translateX(5px);
+          opacity: 0.7;
+        }
+      }
+
+      /* Sticky Navbar */
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navbar-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 50px;
+        padding: 12px 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--navbar-border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        max-width: 90vw;
+        width: fit-content;
+      }
+
+      .navbar:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      /* Logo Section */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links li a:hover {
+        color: var(--text-color);
+        background: var(--nav-link-hover-bg);
+        transform: translateY(-1px);
+      }
+
+      .nav-links li a.active {
+        color: var(--text-color);
+        background: var(--nav-link-active-bg);
+      }
+
+      /* Dark Mode Toggle */
+      .dark-mode-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+      }
+
+      .dark-mode-toggle:hover {
+        background: var(--nav-link-hover-bg);
+        transform: scale(1.1);
+        color: var(--text-color);
+      }
+      .dark-mode-toggle .fa-sun {
+        display: none;
+      }
+      .dark-mode-toggle .fa-moon {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-sun {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-moon {
+        display: none;
+      }
+
+      /* Mobile Menu Toggle */
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-toggle:hover {
+        color: var(--text-color);
+        transform: scale(1.1);
+      }
+
+      /* Services Hero Section */
+      .services-hero {
+        padding: 160px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .services-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        position: relative;
+        z-index: 1;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .services-hero p {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-medium);
+        display: block;
+        min-width: 80px; /* Prevent layout shift during count */
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 5px;
+      }
+
+      /* Filter Tabs */
+      .service-filters {
+        padding: 60px 20px 0;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .filter-tab {
+        padding: 12px 24px;
+        border: 1px solid var(--border-color);
+        background: transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .filter-tab:hover {
+        border-color: var(--primary-medium);
+        color: var(--text-color);
+        transform: translateY(-2px);
+      }
+
+      .filter-tab.active {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 6px 20px rgba(39, 55, 77, 0.2);
+      }
+
+      /* Services Grid */
+      .services-section {
+        padding: 0 20px 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border-color);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1;
+      }
+
+      .service-card.hidden {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+        height: 0;
+        margin-bottom: -30px; /* To compensate for gap */
+        overflow: hidden;
+        padding: 0;
+        border: none;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+        background: var(--card-hover-bg);
+      }
+
+      .service-image {
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .service-card:hover .service-image::before {
+        transform: translateX(100%);
+      }
+
+      .service-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: white;
+        opacity: 0.9;
+      }
+
+      .service-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary-dark);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+      }
+
+      .service-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .service-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 8px;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .service-category {
+        color: var(--primary-medium);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .service-rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+      }
+
+      .stars {
+        color: #fbbf24;
+      }
+
+      .rating-number {
+        color: var(--text-secondary);
+        font-weight: 600;
+      }
+
+      .service-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .service-features {
+        list-style: none;
+        margin-bottom: 25px;
+      }
+
+      .service-features li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .service-features li::before {
+        content: "\f00c"; /* Font Awesome check icon */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: var(--success-color);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+      }
+
+      .service-pricing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        padding: 20px;
+        background: var(--section-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .price-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .price-label {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 2px;
+      }
+
+      .price-amount {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--price-amount-color);
+      }
+
+      .price-period {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-left: 5px;
+      }
+
+      .price-note {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: 5px;
+      }
+
+      .service-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: auto;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(39, 55, 77, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-medium);
+        border: 2px solid var(--primary-medium);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-medium);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Popular Badge */
+      .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        z-index: 10;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 20px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cta-btn {
+        padding: 16px 32px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-btn-primary {
+        background: white;
+        color: var(--primary-dark);
+      }
+
+      .cta-btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .cta-btn-secondary:hover {
+        background: white;
+        color: var(--primary-dark);
+        transform: translateY(-3px);
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 5;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-brand {
+        max-width: 300px;
+      }
+
+      .footer-brand .logo {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-brand .logo-icon {
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+      }
+
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .social-link:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      .footer-column h4 {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 12px;
+      }
+
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary-light);
+        padding-left: 5px;
+      }
+
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .newsletter-btn {
+        padding: 12px 24px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+        color: var(--primary-dark);
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 178, 191, 0.3);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--primary-light);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .footer-main {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-hero h1 {
+          font-size: 2.5rem;
+        }
+        .services-hero p {
+          font-size: 1.1rem;
+        }
+        .cta-section h2 {
+          font-size: 2.2rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .navbar {
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          transform: none;
+          max-width: none;
+          width: calc(100% - 30px);
+          padding: 10px 20px;
+        }
+        .navbar:hover {
+          transform: translateY(-2px);
+        }
+        .nav-container {
+          gap: 20px;
+          width: 100%;
+        }
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 0;
+          right: 0;
+          background: var(--navbar-bg);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-radius: 20px;
+          padding: 20px;
+          flex-direction: column;
+          gap: 10px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--navbar-border);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+        .nav-links.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        .nav-links li {
+          width: 100%;
+        }
+        .nav-links li a {
+          display: block;
+          text-align: center;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+        .desktop-only {
+          display: none;
+        }
+
+        .footer-main {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+        }
+        .footer-brand {
+          max-width: none;
+        }
+        .footer-social {
+          justify-content: center;
+        }
+        .newsletter-form {
+          flex-direction: column;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Dots Background -->
+    <div class="floating-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span class="logo-icon"><i class="fa-brands fa-battle-net"></i></span>
+          <span>Axia</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/pages/contact.html">Home</a></li>
+          <li><a href="#" class="active">Services</a></li>
+
+          <li><a href="#">About</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+        </ul>
+        <div
+          class="desktop-only"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+
+        <button
+          class="mobile-toggle"
+          id="mobile-toggle"
+          aria-label="Toggle menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="services-hero">
+        <h1>Our Digital Services</h1>
+        <p>
+          We offer a comprehensive suite of digital services designed to elevate
+          your brand, engage your audience, and drive business growth.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="150" data-suffix="+">0</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="250" data-suffix="+">0</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="10">0</span>
+            <span class="stat-label">Years of Experience</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter Section -->
+      <section class="service-filters">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="web">Web Dev</button>
+          <button class="filter-tab" data-filter="design">Design</button>
+          <button class="filter-tab" data-filter="marketing">Marketing</button>
+          <button class="filter-tab" data-filter="content">Content</button>
+          <button class="filter-tab" data-filter="data">Data</button>
+          <button class="filter-tab" data-filter="support">Support</button>
+        </div>
+      </section>
+
+      <!-- Services Grid Section -->
+      <section class="services-section">
+        <div class="services-grid" id="services-grid">
+          <!-- Service Card 1: Web Development -->
+          <div class="service-card" data-category="web">
+            <div class="popular-badge">Most Popular</div>
+            <div class="service-image">
+              <i class="fas fa-code service-icon"></i>
+              <span class="service-badge">Web</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Custom Web Development</h3>
+                  <p class="service-category">Web Development</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.9</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Crafting bespoke, high-performance websites tailored to your
+                unique business needs. From e-commerce to corporate sites, we
+                build responsive and scalable solutions.
+              </p>
+              <ul class="service-features">
+                <li>Responsive on all devices</li>
+                <li>Optimized for speed & SEO</li>
+                <li>Secure & scalable architecture</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount">$2,500</span>
+                </div>
+                <span class="price-note">One-time project fee</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary"
+                  >Get a Quote <i class="fas fa-arrow-right"></i
+                ></a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 2: SEO -->
+          <div class="service-card" data-category="marketing">
+            <div class="service-image">
+              <i class="fas fa-chart-line service-icon"></i>
+              <span class="service-badge">Marketing</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">SEO & Digital Marketing</h3>
+                  <p class="service-category">Marketing</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="rating-number">5.0</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Boost your online visibility and drive organic traffic with our
+                data-driven SEO strategies. We cover on-page, off-page, and
+                technical SEO for maximum impact.
+              </p>
+              <ul class="service-features">
+                <li>Comprehensive keyword research</li>
+                <li>Content strategy & creation</li>
+                <li>Monthly performance reports</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$800<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">6-month minimum</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary"
+                  >Start Now <i class="fas fa-rocket"></i
+                ></a>
+                <a href="#" class="btn btn-secondary">Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 3: UI/UX Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-image">
+              <i class="fas fa-palette service-icon"></i>
+              <span class="service-badge">Design</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">UI/UX & Branding</h3>
+                  <p class="service-category">Design</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="far fa-star"></i
+                  ></span>
+                  <span class="rating-number">4.8</span>
+                </div>
+              </div>
+              <p class="service-description">
+                We create intuitive, engaging user interfaces and memorable
+                brand identities that resonate with your target audience and
+                provide a seamless user experience.
+              </p>
+              <ul class="service-features">
+                <li>User research & journey mapping</li>
+                <li>Interactive wireframing & prototyping</li>
+                <li>Complete brand style guides</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount">$1,800</span>
+                </div>
+                <span class="price-note">One-time project fee</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary"
+                  >Get Started <i class="fas fa-pencil-alt"></i
+                ></a>
+                <a href="#" class="btn btn-secondary">View Work</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 4: Cloud Solutions -->
+          <div class="service-card" data-category="web">
+            <div class="service-image">
+              <i class="fas fa-cloud-upload-alt service-icon"></i>
+              <span class="service-badge">Cloud</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Cloud & DevOps</h3>
+                  <p class="service-category">Web Development</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.9</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Leverage the power of the cloud with our expert DevOps and
+                infrastructure services. We provide CI/CD pipelines,
+                containerization, and automated deployments.
+              </p>
+              <ul class="service-features">
+                <li>AWS, Google Cloud, Azure</li>
+                <li>Docker & Kubernetes</li>
+                <li>Infrastructure as Code (IaC)</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$1,200<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">Retainer-based</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary"
+                  >Consult Us <i class="fas fa-cogs"></i
+                ></a>
+                <a href="#" class="btn btn-secondary">Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 5: Social Media Management -->
+          <div class="service-card" data-category="marketing">
+            <div class="service-image">
+              <i class="fas fa-comments service-icon"></i>
+              <span class="service-badge">Social</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Social Media Management</h3>
+                  <p class="service-category">Marketing</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.8</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Engage and grow your audience across all major social platforms.
+                We create content calendars, manage communities, and run
+                targeted ad campaigns.
+              </p>
+              <ul class="service-features">
+                <li>Content creation & scheduling</li>
+                <li>Community engagement</li>
+                <li>Analytics and reporting</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount"
+                    >$650<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">Per platform</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Choose Plan</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 6: PPC Advertising -->
+          <div class="service-card" data-category="marketing">
+            <div class="service-image">
+              <i class="fas fa-mouse-pointer service-icon"></i>
+              <span class="service-badge">Ads</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">PPC Advertising</h3>
+                  <p class="service-category">Marketing</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="rating-number">4.9</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Get instant traffic and measurable ROI with our Pay-Per-Click
+                campaign management. We optimize ads on Google, Bing, and social
+                media for maximum conversions.
+              </p>
+              <ul class="service-features">
+                <li>Ad copywriting & A/B testing</li>
+                <li>Bid management & optimization</li>
+                <li>Landing page conversion analysis</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$500<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">+ % of ad spend</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Start Campaign</a>
+                <a href="#" class="btn btn-secondary">See Results</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 7: E-commerce -->
+          <div class="service-card" data-category="web">
+            <div class="service-image">
+              <i class="fas fa-shopping-cart service-icon"></i>
+              <span class="service-badge">E-commerce</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">E-commerce Solutions</h3>
+                  <p class="service-category">Web Development</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.9</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Launch a powerful online store with our e-commerce development
+                services. We specialize in Shopify, Magento, and WooCommerce to
+                build scalable retail platforms.
+              </p>
+              <ul class="service-features">
+                <li>Payment gateway integration</li>
+                <li>Inventory management systems</li>
+                <li>Conversion Rate Optimization (CRO)</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount">$4,000</span>
+                </div>
+                <span class="price-note">One-time project fee</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Build Your Store</a>
+                <a href="#" class="btn btn-secondary">View Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 8: Content Creation -->
+          <div class="service-card" data-category="content">
+            <div class="service-image">
+              <i class="fas fa-feather-alt service-icon"></i>
+              <span class="service-badge">Content</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Content & Copywriting</h3>
+                  <p class="service-category">Content</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="far fa-star"></i
+                  ></span>
+                  <span class="rating-number">4.7</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Fuel your marketing with compelling content. Our writers produce
+                high-quality blog posts, website copy, case studies, and
+                whitepapers that convert.
+              </p>
+              <ul class="service-features">
+                <li>SEO-friendly articles</li>
+                <li>Persuasive sales copy</li>
+                <li>Thoroughly researched topics</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$0.15<span class="price-period">/word</span></span
+                  >
+                </div>
+                <span class="price-note">Package deals available</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Order Content</a>
+                <a href="#" class="btn btn-secondary">Our Portfolio</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 9: Mobile App Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-image">
+              <i class="fas fa-mobile-alt service-icon"></i>
+              <span class="service-badge">Mobile</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Mobile App Design</h3>
+                  <p class="service-category">Design</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.8</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Design a beautiful and intuitive mobile application for iOS and
+                Android. We focus on user experience to create apps that are
+                engaging and easy to use.
+              </p>
+              <ul class="service-features">
+                <li>User flow & wireframing</li>
+                <li>High-fidelity mockups</li>
+                <li>Interactive prototyping</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount">$3,500</span>
+                </div>
+                <span class="price-note">Per platform</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Start a Project</a>
+                <a href="#" class="btn btn-secondary">View Designs</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 10: Data Analytics -->
+          <div class="service-card" data-category="data">
+            <div class="service-image">
+              <i class="fas fa-chart-pie service-icon"></i>
+              <span class="service-badge">Data</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Data Analytics & BI</h3>
+                  <p class="service-category">Data</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="rating-number">5.0</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Turn your data into actionable insights. We set up analytics,
+                build custom dashboards, and provide business intelligence
+                reports to inform your strategy.
+              </p>
+              <ul class="service-features">
+                <li>Google Analytics / Tag Manager</li>
+                <li>Custom dashboard creation</li>
+                <li>Data visualization & reporting</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$950<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">Retainer model</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Get Insights</a>
+                <a href="#" class="btn btn-secondary">Case Studies</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 11: Email Marketing -->
+          <div class="service-card" data-category="marketing">
+            <div class="service-image">
+              <i class="fas fa-envelope-open-text service-icon"></i>
+              <span class="service-badge">Email</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Email Marketing</h3>
+                  <p class="service-category">Marketing</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="far fa-star"></i
+                  ></span>
+                  <span class="rating-number">4.6</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Nurture leads and retain customers with automated email
+                campaigns. We design templates, write copy, and manage your
+                lists for optimal engagement.
+              </p>
+              <ul class="service-features">
+                <li>Campaign strategy & automation</li>
+                <li>Template design & coding</li>
+                <li>Segmentation & list management</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount"
+                    >$600<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">Based on list size</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Start Mailing</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 12: Website Maintenance -->
+          <div class="service-card" data-category="support">
+            <div class="service-image">
+              <i class="fas fa-tools service-icon"></i>
+              <span class="service-badge">Support</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Website Maintenance</h3>
+                  <p class="service-category">Support</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="rating-number">5.0</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Keep your website secure, updated, and running smoothly with our
+                monthly maintenance plans. We handle backups, security scans,
+                and plugin updates so you don't have to.
+              </p>
+              <ul class="service-features">
+                <li>Daily cloud backups</li>
+                <li>24/7 uptime monitoring</li>
+                <li>Priority support & updates</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount"
+                    >$99<span class="price-period">/mo</span></span
+                  >
+                </div>
+                <span class="price-note">Cancel anytime</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Choose a Plan</a>
+                <a href="#" class="btn btn-secondary">What's Included</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 13: Brand Identity Design -->
+          <div class="service-card" data-category="design">
+            <div class="service-image">
+              <i class="fas fa-lightbulb service-icon"></i>
+              <span class="service-badge">Branding</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Brand Identity Design</h3>
+                  <p class="service-category">Design</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star-half-alt"></i
+                  ></span>
+                  <span class="rating-number">4.9</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Develop a memorable and cohesive brand identity. We design
+                logos, color palettes, typography, and a comprehensive brand
+                style guide for your business.
+              </p>
+              <ul class="service-features">
+                <li>Logo design concepts & revisions</li>
+                <li>Complete brand style guide</li>
+                <li>Business card & stationery design</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">Starts at</span>
+                  <span class="price-amount">$1,500</span>
+                </div>
+                <span class="price-note">One-time package</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Create My Brand</a>
+                <a href="#" class="btn btn-secondary">View Work</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 14: Digital Strategy Consulting -->
+          <div class="service-card" data-category="support">
+            <div class="service-image">
+              <i class="fas fa-sitemap service-icon"></i>
+              <span class="service-badge">Strategy</span>
+            </div>
+            <div class="service-content">
+              <div class="service-header">
+                <div>
+                  <h3 class="service-title">Digital Strategy Consulting</h3>
+                  <p class="service-category">Support</p>
+                </div>
+                <div class="service-rating">
+                  <span class="stars"
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="rating-number">5.0</span>
+                </div>
+              </div>
+              <p class="service-description">
+                Get expert guidance to navigate the digital landscape. We
+                provide strategic roadmaps, competitor analysis, and technology
+                recommendations to achieve your goals.
+              </p>
+              <ul class="service-features">
+                <li>Market & competitor analysis</li>
+                <li>Technology stack consultation</li>
+                <li>Quarterly strategic planning</li>
+              </ul>
+              <div class="service-pricing">
+                <div class="price-section">
+                  <span class="price-label">From</span>
+                  <span class="price-amount"
+                    >$250<span class="price-period">/hr</span></span
+                  >
+                </div>
+                <span class="price-note">Retainers available</span>
+              </div>
+              <div class="service-actions">
+                <a href="#" class="btn btn-primary">Book a Session</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Elevate Your Digital Presence?</h2>
+          <p>
+            Let's discuss how our solutions can help you achieve your business
+            goals. Get in touch for a free, no-obligation consultation.
+          </p>
+          <div class="cta-buttons">
+            <a href="#" class="cta-btn cta-btn-primary">Schedule a Call</a>
+            <a href="#" class="cta-btn cta-btn-secondary">View Our Portfolio</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-main">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <div class="logo-icon">DS</div>
+              <span>Digital Solutions</span>
+            </a>
+            <p>
+              We help ambitious teams and individuals create exceptional digital
+              experiences that drive growth and lasting impact.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </div>
+
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Digital Marketing</a></li>
+              <li><a href="#">Consulting</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Case Studies</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter Column -->
+          <div class="footer-column">
+            <h4>Stay Updated</h4>
+            <p>
+              Subscribe to our newsletter for the latest updates and insights.
+            </p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Enter your email"
+              />
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Digital Solutions. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Dark Mode Toggle Functionality ---
+        const themeToggle = document.getElementById("dark-mode-toggle");
+        const htmlEl = document.documentElement;
+
+        const setTheme = (theme) => {
+          htmlEl.setAttribute("data-theme", theme);
+          localStorage.setItem("theme", theme);
+        };
+
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme) {
+          setTheme(savedTheme);
+        } else if (prefersDark) {
+          setTheme("dark");
+        } else {
+          setTheme("light");
+        }
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme = htmlEl.getAttribute("data-theme");
+          setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
+
+        // --- Mobile Navigation Toggle ---
+        const mobileToggle = document.getElementById("mobile-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        mobileToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+          const icon = mobileToggle.querySelector("i");
+          if (navLinks.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+
+        // --- Service Filtering Functionality ---
+        const filterTabs = document.getElementById("filter-tabs");
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        filterTabs.addEventListener("click", (e) => {
+          const clickedTab = e.target.closest(".filter-tab");
+          if (!clickedTab) return;
+
+          filterTabs.querySelector(".active").classList.remove("active");
+          clickedTab.classList.add("active");
+
+          const filter = clickedTab.getAttribute("data-filter");
+
+          serviceCards.forEach((card) => {
+            const category = card.getAttribute("data-category");
+            if (filter === "all" || filter === category) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+        });
+
+        // --- Counter Up Animation ---
+        const statsSection = document.querySelector(".hero-stats");
+
+        const animateCount = (element) => {
+          const target = +element.dataset.target;
+          const suffix = element.dataset.suffix || "";
+          const duration = 2000; // 2 seconds
+          let current = 0;
+          const stepTime = 16; // roughly 60fps
+          const totalSteps = Math.round(duration / stepTime);
+          const increment = target / totalSteps;
+
+          const updateCount = () => {
+            current += increment;
+            if (current < target) {
+              element.innerText = Math.ceil(current);
+              requestAnimationFrame(updateCount);
+            } else {
+              element.innerText = target + suffix;
+            }
+          };
+          requestAnimationFrame(updateCount);
+        };
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const statNumbers =
+                  entry.target.querySelectorAll(".stat-number");
+                statNumbers.forEach((num) => animateCount(num));
+                observer.unobserve(entry.target); // Animate only once
+              }
+            });
+          },
+          {
+            threshold: 0.5, // Trigger when 50% of the element is visible
+          }
+        );
+
+        if (statsSection) {
+          observer.observe(statsSection);
+        }
+      });
+    </script>
+  </body>
+</html>
