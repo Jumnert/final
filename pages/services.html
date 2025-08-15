@@ -26,56 +26,47 @@
     <title>Our Services - Professional Digital Solutions</title>
     <style>
       :root {
-        --primary-dark: #27374d;
-        --primary-medium: #526d82;
-        --primary-light: #9db2bf;
-        --primary-lightest: #dde6ed;
-        --accent-color: #4f46e5;
-        --success-color: #10b981;
-        --warning-color: #f59e0b;
+        --primary-dark: #0d1b2a; /* Deep navy */
+        --primary-medium: #1b263b; /* Dark slate blue */
+        --primary-light: #415a77; /* Slate blue */
+        --primary-lightest: #778da9; /* Soft blue-gray */
+        --primary-accent: #e0e1dd; /* Off-white / highlight */
       }
 
-      /* Dark mode variables */
+      /* Dark mode */
       [data-theme="dark"] {
-        --bg-color: #1a1a1a;
-        --text-color: #ffffff;
-        --text-secondary: #cccccc;
-        --navbar-bg: rgba(26, 26, 26, 0.7);
-        --navbar-border: rgba(255, 255, 255, 0.1);
+        --bg-color: #0d1b2a;
+        --text-color: #e0e1dd;
+        --text-secondary: #778da9;
+        --navbar-bg: rgba(224, 225, 221, 0.05);
+        --navbar-border: rgba(224, 225, 221, 0.15);
         --gradient-bg: linear-gradient(
           135deg,
-          #1a202c 0%,
-          #12151a 50%,
-          #1a202c 100%
+          #1b263b 0%,
+          #0d1b2a 50%,
+          #415a77 100%
         );
-        --card-bg: rgba(255, 255, 255, 0.05);
-        --card-hover-bg: rgba(255, 255, 255, 0.08);
-        --border-color: rgba(255, 255, 255, 0.1);
-        --section-bg: rgba(255, 255, 255, 0.03);
-        --nav-link-hover-bg: rgba(255, 255, 255, 0.1);
-        --nav-link-active-bg: rgba(255, 255, 255, 0.2);
-        --price-amount-color: var(--primary-lightest);
+        --card-bg: rgba(224, 225, 221, 0.04);
+        --input-bg: rgba(224, 225, 221, 0.08);
+        --border-color: rgba(224, 225, 221, 0.12);
       }
 
+      /* Light mode */
       [data-theme="light"] {
-        --bg-color: #ffffff;
-        --text-color: var(--primary-dark);
-        --text-secondary: var(--primary-medium);
-        --navbar-bg: rgba(255, 255, 255, 0.7);
-        --navbar-border: rgba(0, 0, 0, 0.08);
+        --bg-color: #e0e1dd;
+        --text-color: #0d1b2a;
+        --text-secondary: #415a77;
+        --navbar-bg: rgba(13, 27, 42, 0.05);
+        --navbar-border: rgba(13, 27, 42, 0.1);
         --gradient-bg: linear-gradient(
           135deg,
-          #f9fafb 0%,
-          #ffffff 50%,
-          #f9fafb 100%
+          #778da9 0%,
+          #e0e1dd 50%,
+          #415a77 100%
         );
-        --card-bg: #ffffff;
-        --card-hover-bg: #ffffff;
-        --border-color: rgba(39, 55, 77, 0.1);
-        --section-bg: rgba(39, 55, 77, 0.02);
-        --nav-link-hover-bg: var(--primary-lightest);
-        --nav-link-active-bg: var(--primary-light);
-        --price-amount-color: var(--primary-dark);
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --input-bg: rgba(255, 255, 255, 0.95);
+        --border-color: rgba(13, 27, 42, 0.12);
       }
 
       * {
@@ -1170,7 +1161,7 @@
           <li><a href="/pages/contact.html">Home</a></li>
           <li><a href="#" class="active">Services</a></li>
 
-          <li><a href="#">About</a></li>
+          <li><a href="/pages/about.html">About</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
         </ul>
         <div
