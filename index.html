@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <!-- Updated Font Awesome to a newer version for better support -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -21,7 +20,6 @@
     <title>Floating Sticky Navbar</title>
   </head>
   <body>
-    <!-- New: Loader Container -->
     <div class="loader-container" id="loader">
       <div class="spinner">
         <div></div>
@@ -33,36 +31,26 @@
       </div>
     </div>
 
-    <!-- Sticky Floating Navbar -->
     <nav class="navbar">
       <div class="nav-container">
-        <!-- Logo -->
         <a href="#" class="logo">
           <div class="logo-icon"><i class="fa-brands fa-battle-net"></i></div>
           <span>Axia</span>
         </a>
-
-        <!-- Navigation Links -->
         <ul class="nav-links" id="navLinks">
           <li><a href="#" class="active">Home</a></li>
           <li><a href="/pages/services.html">Services</a></li>
           <li><a href="/pages/about.html">About</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
         </ul>
-
-        <!-- Mobile Toggle -->
         <button class="mobile-toggle" id="mobileToggle">☰</button>
-
-        <!-- Dark Mode Toggle -->
         <button class="dark-mode-toggle" id="darkModeToggle">
           <i class="fa-regular fa-moon"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-      <!-- Floating Dots Background -->
       <div class="floating-dots">
         <div class="dot"></div>
         <div class="dot"></div>
@@ -80,7 +68,6 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-
       <div class="hero-content">
         <h1><span class="typing-text" id="typingText"></span></h1>
         <p>
@@ -95,7 +82,6 @@
       </div>
     </section>
 
-    <!-- Placeholder Sections to make the page scrollable -->
     <section
       class="placeholder-section"
       style="background: var(--primary-lightest)"
@@ -109,11 +95,9 @@
       <h2 style="color: white">Another Section</h2>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-main">
-          <!-- Brand Column -->
           <div class="footer-brand">
             <a href="#" class="logo">
               <div class="logo-icon">B</div>
@@ -138,8 +122,6 @@
               </a>
             </div>
           </div>
-
-          <!-- Company Column -->
           <div class="footer-column">
             <h4>Company</h4>
             <ul>
@@ -150,8 +132,6 @@
               <li><a href="#">News</a></li>
             </ul>
           </div>
-
-          <!-- Services Column -->
           <div class="footer-column">
             <h4>Services</h4>
             <ul>
@@ -162,8 +142,6 @@
               <li><a href="#">Support</a></li>
             </ul>
           </div>
-
-          <!-- Resources Column -->
           <div class="footer-column">
             <h4>Resources</h4>
             <ul>
@@ -174,8 +152,6 @@
               <li><a href="#">Community</a></li>
             </ul>
           </div>
-
-          <!-- Newsletter Column -->
           <div class="footer-column">
             <h4>Stay Updated</h4>
             <p
@@ -197,7 +173,6 @@
             </div>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>&copy; 2024 Brand. All rights reserved.</p>
           <div class="footer-bottom-links">
@@ -211,16 +186,13 @@
     </footer>
 
     <script>
-      // New: Loader Functionality
       window.addEventListener("load", () => {
         const loader = document.getElementById("loader");
-        // Give a small delay before hiding the loader to ensure all assets are loaded
         setTimeout(() => {
           loader.classList.add("hidden");
         }, 500);
       });
 
-      // Newsletter Subscription
       const newsletterForm = document.querySelector(".newsletter-form");
       const newsletterInput = document.querySelector(".newsletter-input");
       const newsletterBtn = document.querySelector(".newsletter-btn");
@@ -228,13 +200,11 @@
       newsletterBtn.addEventListener("click", (e) => {
         e.preventDefault();
         const email = newsletterInput.value.trim();
-
         if (email && email.includes("@")) {
           newsletterBtn.textContent = "Subscribed!";
           newsletterBtn.style.background =
             "linear-gradient(135deg, #10b981, #059669)";
           newsletterInput.value = "";
-
           setTimeout(() => {
             newsletterBtn.textContent = "Subscribe";
             newsletterBtn.style.background =
@@ -248,15 +218,11 @@
         }
       });
 
-      // Dark Mode Toggle Functionality
       const darkModeToggle = document.getElementById("darkModeToggle");
       const body = document.body;
-
-      // Check for saved theme preference or default to light mode
       const currentTheme = localStorage.getItem("theme") || "light";
       body.setAttribute("data-theme", currentTheme);
 
-      // Update toggle button icon
       function updateToggleIcon(theme) {
         darkModeToggle.innerHTML =
           theme === "dark"
@@ -269,20 +235,17 @@
       darkModeToggle.addEventListener("click", () => {
         const currentTheme = body.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
-
         body.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
         updateToggleIcon(newTheme);
       });
 
-      // Typing Effect
       const texts = [
         "Transform Your Ideas Into Reality",
         "Create Amazing Digital Experiences",
         "Build The Future Together",
         "Innovation Starts Here",
       ];
-
       let textIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
@@ -290,11 +253,9 @@
 
       function typeText() {
         const currentText = texts[textIndex];
-
         if (isDeleting) {
           typingElement.textContent = currentText.substring(0, charIndex - 1);
           charIndex--;
-
           if (charIndex === 0) {
             isDeleting = false;
             textIndex = (textIndex + 1) % texts.length;
@@ -304,24 +265,19 @@
         } else {
           typingElement.textContent = currentText.substring(0, charIndex + 1);
           charIndex++;
-
           if (charIndex === currentText.length) {
             isDeleting = true;
             setTimeout(typeText, 2000);
             return;
           }
         }
-
         setTimeout(typeText, isDeleting ? 50 : 100);
       }
 
-      // Start typing effect when page loads
-      // Using DOMContentLoaded to ensure the element exists
       document.addEventListener("DOMContentLoaded", () => {
         setTimeout(typeText, 1000);
       });
 
-      // Mobile menu toggle functionality
       const mobileToggle = document.getElementById("mobileToggle");
       const navLinks = document.getElementById("navLinks");
 
@@ -329,10 +285,8 @@
         navLinks.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking on a link
       navLinks.addEventListener("click", (e) => {
         if (e.target.tagName === "A") {
-          // Prevent default only if the link's href is '#'
           if (e.target.getAttribute("href") === "#") {
             e.preventDefault();
           }
@@ -340,18 +294,15 @@
         }
       });
 
-      // Close mobile menu when clicking outside
       document.addEventListener("click", (e) => {
         if (!e.target.closest(".navbar")) {
           navLinks.classList.remove("active");
         }
       });
 
-      // Add scroll effect to navbar
       window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navbar");
         const currentTheme = body.getAttribute("data-theme");
-
         if (window.scrollY > 100) {
           if (currentTheme === "dark") {
             navbar.style.background = "rgba(255, 255, 255, 0.15)";
@@ -369,11 +320,9 @@
         }
       });
 
-      // Active link highlighting
       const navLinksElements = document.querySelectorAll(".nav-links a");
       navLinksElements.forEach((link) => {
         link.addEventListener("click", (e) => {
-          // Prevent default only if the link's href is '#'
           if (link.getAttribute("href") === "#") {
             e.preventDefault();
           }
