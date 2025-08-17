@@ -43,3 +43,8 @@ To get a local copy up and running, follow these simple steps:
 - **CSS3:** For styling the website, including the use of CSS variables for theming.
 - **JavaScript:** For the dark mode toggle, mobile navigation, and form validation.
 - **Font Awesome:** For the icons used throughout the website.
+
+* **HTML5:** For the structure of the website.
+* **CSS3:** For styling the website, including the use of CSS variables for theming.
+* **JavaScript:** For the dark mode toggle, mobile navigation, and form validation.
+* **Font Awesome:** For the icons used throughout the whole website.
