@@ -4,10 +4,10 @@ This is the official website for Axia, a professional digital solutions provider
 
 ## Features
 
-*   **Responsive Design:** The website is fully responsive and works on all devices, from mobile phones to desktop computers.
-*   **Dark Mode:** A user-friendly dark mode is available for a better viewing experience in low-light environments.
-*   **Contact Form:** A fully functional contact form with real-time validation to ensure users provide correct information.
-*   **Animations:** Smooth animations and transitions are used throughout the website to enhance the user experience.
+- **Responsive Design:** The website is fully responsive and works on all devices, from mobile phones to desktop computers.
+- **Dark Mode:** A user-friendly dark mode is available for a better viewing experience in low-light environments.
+- **Contact Form:** A fully functional contact form with real-time validation to ensure users provide correct information.
+- **Animations:** Smooth animations and transitions are used throughout the website to enhance the user experience.
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ To get a local copy up and running, follow these simple steps:
 
 1.  Clone the repository:
     ```sh
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/Jumnert/final.git
     ```
 2.  Open the `index.html` file in your browser.
 
@@ -39,7 +39,7 @@ To get a local copy up and running, follow these simple steps:
 
 ## Technologies Used
 
-*   **HTML5:** For the structure of the website.
-*   **CSS3:** For styling the website, including the use of CSS variables for theming.
-*   **JavaScript:** For the dark mode toggle, mobile navigation, and form validation.
-*   **Font Awesome:** For the icons used throughout the website.
+- **HTML5:** For the structure of the website.
+- **CSS3:** For styling the website, including the use of CSS variables for theming.
+- **JavaScript:** For the dark mode toggle, mobile navigation, and form validation.
+- **Font Awesome:** For the icons used throughout the website.
