@@ -130,121 +130,6 @@ body {
   }
 }
 
-/* StickyNavbar */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--navbar-bg);
-  backdrop-filter: blur(20px);
-  border-radius: 50px;
-  padding: 12px 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--navbar-border);
-  z-index: 1000;
-  transition: all 0.3s ease;
-  max-width: 90vw;
-  width: fit-content;
-}
-
-.navbar:hover {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-/* Logo Section */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-dark),
-    var(--primary-medium)
-  );
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-}
-
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  align-items: center;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-links li a:hover {
-  color: var(--primary-dark);
-  background: var(--primary-lightest);
-  transform: translateY(-1px);
-}
-
-.nav-links li a.active {
-  color: var(--text-color);
-  background: var(--primary-light);
-}
-
-/* Dark Mode Toggle */
-.dark-mode-toggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-}
-
-.dark-mode-toggle:hover {
-  background: var(--primary-lightest);
-  transform: scale(1.1);
-  color: var(--text-color);
-}
-
 /* Sign Up Button */
 .signup-btn {
   background: linear-gradient(
@@ -1017,13 +902,12 @@ body {
 
 .nav-links li a:hover {
   color: var(--primary-dark);
-  background: var(--primary-lightest);
+
   transform: translateY(-1px);
 }
 
 .nav-links li a.active {
   color: var(--text-color);
-  background: var(--primary-light);
 }
 
 /* Dark Mode Toggle */
