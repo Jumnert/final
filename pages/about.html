@@ -906,12 +906,12 @@
         <div class="team-grid">
           <!-- Team Member 1 -->
           <div class="team-card">
-            <img src="../assets/images/chumnith.png" width="300px" />
+            <img src="/images/cheata.png" width="300px" />
             <div class="team-card-body">
               <h4>Choun Theachumnith</h4>
               <p class="role">Founder & CEO</p>
               <p class="bio">
-                chumnith is the visionary behind Axia, guiding the company with
+                Jane is the visionary behind Axia, guiding the company with
                 passion and a deep understanding of the digital world.
               </p>
               <div class="team-socials">
@@ -926,12 +926,12 @@
           </div>
           <!-- Team Member 2 -->
           <div class="team-card">
-            <img src="../assets/images/cheata.png" width="300px" />
+            <img src="/images/chumnith.png " width="300px" />
             <div class="team-card-body">
-              <h4>Soeng Socheata</h4>
+              <h4>John Smith</h4>
               <p class="role">Lead Developer</p>
               <p class="bio">
-                socheata Seong is a coding maestro who turns complex problems into
+                John is a coding maestro who turns complex problems into
                 elegant, high-performance digital solutions.
               </p>
               <div class="team-socials">
@@ -946,12 +946,12 @@
           </div>
           <!-- Team Member 3 -->
           <div class="team-card">
-            <img src="../assets/images/ratana.png" width="300px" />
+            <img src="/images/mony.png" width="300px" />
             <div class="team-card-body">
-              <h4>Em Ratahan</h4>
+              <h4>Emily White</h4>
               <p class="role">Creative Director</p>
               <p class="bio">
-                Ratana Em artistic vision and keen eye for design ensure every
+                Emily's artistic vision and keen eye for design ensure every
                 project we touch is both beautiful and user-friendly.
               </p>
               <div class="team-socials">
@@ -966,12 +966,12 @@
           </div>
           <!-- Team Member 4 -->
           <div class="team-card">
-            <img src="../assets/images/seth.png" width="300px" />
+            <img src="/images/ratana.png" width="300px" />
             <div class="team-card-body">
-              <h4>Doung Viseth</h4>
+              <h4>Chris Green</h4>
               <p class="role">Marketing Strategist</p>
               <p class="bio">
-               Mr. Visoth Doung connects our clients with their audiences through
+                Chris connects our clients with their audiences through
                 data-driven strategies that deliver measurable results.
               </p>
               <div class="team-socials">
@@ -986,12 +986,12 @@
           </div>
           <!-- Team Member 5 -->
           <div class="team-card">
-            <img src="../assets/images/mony.png" width="300px" />
+            <img src="/images/seth.png " width="300px" />
             <div class="team-card-body">
-              <h4>Rem Phearomthunmony</h4>
+              <h4>Alex Ray</h4>
               <p class="role">Project Manager</p>
               <p class="bio">
-                Mony keeps our projects on track and ensures seamless
+                Alex keeps our projects on track and ensures seamless
                 communication between our team and our clients.
               </p>
               <div class="team-socials">
@@ -1003,12 +1003,12 @@
           </div>
           <!-- Team Member 5 -->
           <div class="team-card">
-            <img src="../assets/images/sopheak.png " width="300px" />
+            <img src="/images/sopheak.png " width="300px" />
             <div class="team-card-body">
-              <h4>Sopheak Bormey</h4>
+              <h4>Alex Ray</h4>
               <p class="role">Project Manager</p>
               <p class="bio">
-                Bormey keeps our projects on track and ensures seamless
+                Alex keeps our projects on track and ensures seamless
                 communication between our team and our clients.
               </p>
               <div class="team-socials">
@@ -1166,58 +1166,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // --- Dark Mode Toggle Functionality ---
-        const desktopToggle = document.getElementById("dark-mode-toggle");
-        const mobileToggleBtn = document.getElementById(
-          "mobile-dark-mode-toggle"
-        );
-        const htmlEl = document.documentElement;
-
-        const setTheme = (theme) => {
-          htmlEl.setAttribute("data-theme", theme);
-          localStorage.setItem("theme", theme);
-        };
-
-        const toggleTheme = () => {
-          const currentTheme = htmlEl.getAttribute("data-theme");
-          setTheme(currentTheme === "dark" ? "light" : "dark");
-        };
-
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-
-        if (savedTheme) {
-          setTheme(savedTheme);
-        } else if (prefersDark) {
-          setTheme("dark");
-        } else {
-          setTheme("light");
-        }
-
-        desktopToggle.addEventListener("click", toggleTheme);
-        mobileToggleBtn.addEventListener("click", toggleTheme);
-
-        // --- Mobile Navigation Toggle ---
-        const mobileMenuToggle = document.getElementById("mobile-toggle");
-        const navLinks = document.getElementById("nav-links");
-
-        mobileMenuToggle.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-          const icon = mobileMenuToggle.querySelector("i");
-          if (navLinks.classList.contains("active")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-          } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
