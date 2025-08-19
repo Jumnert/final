@@ -42,5 +42,4 @@ document.addEventListener("DOMContentLoaded", function () {
       icon.classList.remove("fa-times");
       icon.classList.add("fa-bars");
     }
-  });
 });
