@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,22 +11,23 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="../Styles/mainStyle.css" />
     <link rel="stylesheet" href="contactcss.css" />
     <title>Contact Us - Get In Touch</title>
     <style>
       :root {
-        --primary-dark: #0d1b2a; /* Deep navy */
-        --primary-medium: #1b263b; /* Dark slate blue */
-        --primary-light: #415a77; /* Slate blue */
-        --primary-lightest: #778da9; /* Soft blue-gray */
-        --primary-accent: #e0e1dd; /* Off-white / highlight */
+        --primary-dark: #0d1b2a;
+        --primary-medium: #1b263b;
+        --primary-light: #415a77;
+        --primary-lightest: #778da9;
+        --primary-accent: #e0e1dd;
+        --success-color: #10b981;
+        --error-color: #ef4444;
+        --warning-color: #f59e0b;
       }
 
       /* Dark mode */
@@ -45,6 +46,7 @@
         --card-bg: rgba(224, 225, 221, 0.04);
         --input-bg: rgba(224, 225, 221, 0.08);
         --border-color: rgba(224, 225, 221, 0.12);
+        --section-bg: rgba(224, 225, 221, 0.02);
       }
 
       /* Light mode */
@@ -63,54 +65,353 @@
         --card-bg: rgba(255, 255, 255, 0.9);
         --input-bg: rgba(255, 255, 255, 0.95);
         --border-color: rgba(13, 27, 42, 0.12);
-      }
-      s
-      /* Contact Hero Section */
-      .contact-hero {
-        padding: 120px 20px 80px;
-        text-align: center;
-        background: radial-gradient(
-            circle at 20% 20%,
-            rgba(157, 178, 191, 0.2) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 80%,
-            rgba(82, 109, 130, 0.15) 0%,
-            transparent 50%
-          );
+        --section-bg: rgba(255, 255, 255, 0.5);
       }
 
-      .contact-hero h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Noto Sans", sans-serif;
+        line-height: 1.6;
+        background: var(--gradient-bg);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
         color: var(--text-color);
+        transition: all 0.3s ease-in-out;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Floating Dots Background */
+      .floating-dots {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        animation: float-dots 12s ease-in-out infinite;
+        opacity: 0;
+      }
+
+      .dot:nth-child(1) {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .dot:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-medium);
+        top: 60%;
+        left: 20%;
+        animation-delay: 2s;
+      }
+      .dot:nth-child(3) {
+        width: 10px;
+        height: 10px;
+        background: var(--primary-lightest);
+        top: 30%;
+        right: 15%;
+        animation-delay: 4s;
+      }
+      .dot:nth-child(4) {
+        width: 7px;
+        height: 7px;
+        background: var(--primary-light);
+        top: 70%;
+        right: 30%;
+        animation-delay: 1s;
+      }
+      .dot:nth-child(5) {
+        width: 9px;
+        height: 9px;
+        background: var(--primary-medium);
+        top: 15%;
+        left: 50%;
+        animation-delay: 3s;
+      }
+      .dot:nth-child(6) {
+        width: 5px;
+        height: 5px;
+        background: var(--primary-light);
+        top: 80%;
+        left: 70%;
+        animation-delay: 5s;
+      }
+      .dot:nth-child(7) {
+        width: 4px;
+        height: 4px;
+        background: var(--primary-medium);
+        top: 25%;
+        left: 75%;
+        animation-delay: 1.5s;
+      }
+      .dot:nth-child(8) {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-lightest);
+        top: 45%;
+        left: 5%;
+        animation-delay: 3.5s;
+      }
+
+      @keyframes float-dots {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+          opacity: 0;
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-10px) translateX(-15px);
+          opacity: 0.5;
+        }
+        75% {
+          transform: translateY(-30px) translateX(5px);
+          opacity: 0.7;
+        }
+      }
+
+      /* Sticky Navbar */
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navbar-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 50px;
+        padding: 12px 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--navbar-border);
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+        max-width: 90vw;
+        width: fit-content;
+      }
+
+      .navbar:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
         background: linear-gradient(
           135deg,
           var(--primary-dark),
           var(--primary-medium)
         );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+      }
+
+      .nav-links li a:hover {
+        color: var(--text-color);
+        background: var(--nav-link-hover-bg);
+        transform: translateY(-1px);
+      }
+
+      .nav-links li a.active {
+        color: var(--text-color);
+        background: var(--nav-link-active-bg);
+      }
+
+      .dark-mode-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+      }
+
+      .dark-mode-toggle:hover {
+        background: var(--nav-link-hover-bg);
+        transform: scale(1.1);
+        color: var(--text-color);
+      }
+
+      .dark-mode-toggle .fa-sun {
+        display: none;
+      }
+      .dark-mode-toggle .fa-moon {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-sun {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-moon {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .mobile-toggle:hover {
+        color: var(--text-color);
+        transform: scale(1.1);
+      }
+
+      /* Contact Hero Section */
+      .contact-hero {
+        padding: 160px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        position: relative;
+        z-index: 1;
+        font-family: "Rubik", sans-serif;
       }
 
       .contact-hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: var(--text-secondary);
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        position: relative;
+        z-index: 1;
       }
 
-      /* Contact Section */
-      .contact-section {
+      .hero-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 40px auto 0;
+      }
+
+      .hero-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 30px 20px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      .hero-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-card-icon {
+        font-size: 2.5rem;
+        color: var(--primary-medium);
+        margin-bottom: 15px;
+      }
+
+      .hero-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--text-color);
+      }
+
+      .hero-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Main Contact Section */
+      .contact-main {
         padding: 80px 20px;
         max-width: 1400px;
         margin: 0 auto;
       }
 
-      .contact-container {
+      .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 60px;
@@ -118,13 +419,13 @@
       }
 
       /* Contact Form */
-      .contact-form-container {
+      .contact-form-section {
         background: var(--card-bg);
         backdrop-filter: blur(20px);
-        border-radius: 20px;
+        border-radius: 24px;
         padding: 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         border: 1px solid var(--border-color);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
       }
 
       .form-header {
@@ -132,176 +433,104 @@
       }
 
       .form-header h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 700;
         color: var(--text-color);
         margin-bottom: 10px;
+        font-family: "Rubik", sans-serif;
       }
 
       .form-header p {
         color: var(--text-secondary);
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       .contact-form {
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 20px;
       }
 
       .form-group {
         position: relative;
       }
 
-      .form-row {
+      .form-group.half {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 15px;
       }
 
-      .form-group label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--text-color);
-        font-size: 0.95rem;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
+      .form-input,
+      .form-textarea,
+      .form-select {
         width: 100%;
-        padding: 15px 18px;
+        padding: 16px 20px;
         border: 2px solid var(--border-color);
         border-radius: 12px;
         background: var(--input-bg);
-        backdrop-filter: blur(10px);
         color: var(--text-color);
         font-size: 1rem;
+        transition: all 0.3s ease-in-out;
         font-family: inherit;
-        transition: all 0.3s ease;
-        resize: none;
       }
 
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
         outline: none;
         border-color: var(--primary-medium);
-        box-shadow: 0 0 0 4px rgba(82, 109, 130, 0.1);
-        transform: translateY(-1px);
+        box-shadow: 0 0 0 4px rgba(65, 90, 119, 0.1);
       }
 
-      .form-group textarea {
-        min-height: 120px;
+      .form-textarea {
         resize: vertical;
+        min-height: 120px;
       }
 
-      .form-group input::placeholder,
-      .form-group textarea::placeholder {
-        color: var(--text-secondary);
-        opacity: 0.7;
+      .form-input.error,
+      .form-textarea.error,
+      .form-select.error {
+        border-color: var(--error-color);
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
       }
 
-      /* Priority Badge */
-      .priority-badge {
-        display: inline-flex;
+      .form-input.success,
+      .form-textarea.success,
+      .form-select.success {
+        border-color: var(--success-color);
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+      }
+
+      .form-error {
+        color: var(--error-color);
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .form-error.show {
+        display: block;
+      }
+
+      .form-checkbox {
+        display: flex;
         align-items: center;
-        gap: 6px;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-left: 10px;
+        gap: 12px;
+        margin: 10px 0;
       }
 
-      .priority-high {
-        background: rgba(239, 68, 68, 0.1);
-        color: #ef4444;
-        border: 1px solid rgba(239, 68, 68, 0.2);
+      .checkbox-input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary-medium);
       }
 
-      .priority-medium {
-        background: rgba(251, 146, 60, 0.1);
-        color: #f59e0b;
-        border: 1px solid rgba(251, 146, 60, 0.2);
-      }
-
-      .priority-low {
-        background: rgba(34, 197, 94, 0.1);
-        color: #22c55e;
-        border: 1px solid rgba(34, 197, 94, 0.2);
-      }
-
-      /* File Upload */
-      .file-upload {
-        position: relative;
-        border: 2px dashed var(--border-color);
-        border-radius: 12px;
-        padding: 30px 20px;
-        text-align: center;
-        background: var(--input-bg);
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-
-      .file-upload:hover {
-        border-color: var(--primary-medium);
-        background: rgba(82, 109, 130, 0.05);
-      }
-
-      .file-upload input[type="file"] {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        cursor: pointer;
-      }
-
-      .file-upload-icon {
-        font-size: 2rem;
-        color: var(--primary-medium);
-        margin-bottom: 10px;
-      }
-
-      .file-upload-text {
+      .checkbox-label {
         color: var(--text-secondary);
         font-size: 0.9rem;
       }
 
-      .file-list {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .file-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 15px;
-        background: rgba(82, 109, 130, 0.1);
-        border-radius: 8px;
-        font-size: 0.9rem;
-      }
-
-      .file-remove {
-        background: none;
-        border: none;
-        color: #ef4444;
-        cursor: pointer;
-        font-size: 1.2rem;
-        padding: 2px;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-      }
-
-      .file-remove:hover {
-        background: rgba(239, 68, 68, 0.1);
-      }
-
-      /* Submit Button */
       .submit-btn {
         background: linear-gradient(
           135deg,
@@ -309,518 +538,874 @@
           var(--primary-medium)
         );
         color: white;
-        padding: 16px 32px;
         border: none;
+        padding: 16px 32px;
         border-radius: 12px;
-        font-weight: 600;
         font-size: 1.1rem;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
       }
 
       .submit-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(39, 55, 77, 0.3);
+        box-shadow: 0 8px 25px rgba(39, 55, 77, 0.3);
       }
 
-      .submit-btn:active {
-        transform: translateY(0);
-      }
-
-      .submit-btn.loading {
-        opacity: 0.8;
+      .submit-btn:disabled {
+        opacity: 0.6;
         cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
       }
 
-      .submit-btn.success {
-        background: linear-gradient(135deg, #10b981, #059669);
+      .btn-loading {
+        animation: spin 1s linear infinite;
       }
 
-      /* Contact Info */
-      .contact-info {
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Contact Info Section */
+      .contact-info-section {
         display: flex;
         flex-direction: column;
         gap: 30px;
       }
 
-      .info-card {
+      .contact-info-card {
         background: var(--card-bg);
         backdrop-filter: blur(20px);
         border-radius: 20px;
         padding: 30px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
       }
 
-      .info-card:hover {
+      .contact-info-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
       }
 
-      .info-item {
+      .contact-info-card h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 20px;
         display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 25px;
+        align-items: center;
+        gap: 12px;
       }
 
-      .info-item:last-child {
+      .contact-info-card h3 i {
+        color: var(--primary-medium);
+        font-size: 1.6rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .contact-item:last-child {
+        border-bottom: none;
         margin-bottom: 0;
       }
 
-      .info-icon {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-light),
-          var(--primary-medium)
-        );
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        color: white;
-        flex-shrink: 0;
+      .contact-item i {
+        color: var(--primary-light);
+        font-size: 1.2rem;
+        width: 24px;
+        text-align: center;
       }
 
-      .info-content h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text-color);
-        margin-bottom: 5px;
+      .contact-item-content {
+        flex: 1;
       }
 
-      .info-content p {
+      .contact-item-label {
+        font-size: 0.85rem;
         color: var(--text-secondary);
-        font-size: 0.95rem;
-        line-height: 1.5;
+        margin-bottom: 2px;
       }
 
-      .info-content a {
-        color: var(--primary-medium);
+      .contact-item-value {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .contact-item-value a {
+        color: inherit;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: color 0.3s ease-in-out;
       }
 
-      .info-content a:hover {
-        color: var(--primary-dark);
-        text-decoration: underline;
+      .contact-item-value a:hover {
+        color: var(--primary-medium);
       }
 
-      /* Map Container */
-      .map-container {
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        border: 1px solid var(--border-color);
+      /* Social Media Section */
+      .social-media-card {
+        text-align: center;
       }
 
-      .map-container iframe {
-        width: 100%;
-        height: 400px;
-        border: none;
-        filter: grayscale(20%);
-        transition: all 0.3s ease;
-      }
-
-      .map-container:hover iframe {
-        filter: grayscale(0%);
-      }
-
-      /* Social Links */
       .social-links {
         display: flex;
+        justify-content: center;
         gap: 15px;
-        margin-top: 20px;
+        flex-wrap: wrap;
       }
 
       .social-link {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        font-size: 1.4rem;
+      }
+
+      .social-link:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 8px 25px rgba(39, 55, 77, 0.3);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 80px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .map-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .map-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .map-header p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .map-container {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 30px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+      }
+
+      .map-iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 16px;
+        filter: grayscale(20%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      .map-iframe:hover {
+        filter: grayscale(0%);
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 80px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .faq-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .faq-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .faq-header p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+
+      .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .faq-item {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .faq-question {
+        padding: 25px 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .faq-question:hover {
+        background: var(--section-bg);
+      }
+
+      .faq-question h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin: 0;
+        flex: 1;
+      }
+
+      .faq-icon {
+        color: var(--primary-medium);
+        font-size: 1.2rem;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      .faq-answer.active {
+        max-height: 200px;
+      }
+
+      .faq-answer-content {
+        padding: 0 30px 25px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Success Message */
+      .success-message {
+        display: none;
+        background: linear-gradient(135deg, var(--success-color), #059669);
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .success-message.show {
+        display: block;
+        animation: slideDown 0.5s ease-in-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 20px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cta-btn {
+        padding: 16px 32px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .cta-btn-primary {
+        background: white;
+        color: var(--primary-dark);
+      }
+
+      .cta-btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .cta-btn-secondary:hover {
+        background: white;
+        color: var(--primary-dark);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 5;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-brand {
+        max-width: 300px;
+      }
+
+      .footer-brand .logo {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-brand .logo-icon {
         background: linear-gradient(
           135deg,
           var(--primary-light),
           var(--primary-medium)
         );
-        border-radius: 12px;
+      }
+
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 15px;
+      }
+
+      .footer-social .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
         color: white;
         text-decoration: none;
+        transition: all 0.3s ease-in-out;
         font-size: 1.2rem;
-        transition: all 0.3s ease;
       }
 
-      .social-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(82, 109, 130, 0.3);
+      .footer-social .social-link:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      .footer-column h4 {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column li {
+        margin-bottom: 12px;
+      }
+
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        font-size: 0.95rem;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary-light);
+        padding-left: 5px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--primary-light);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .contact-hero p {
+          font-size: 1.1rem;
+        }
+
+        .hero-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-form-section,
+        .contact-info-section {
+          padding: 30px 20px;
+        }
+
+        .form-group.half {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-section h2 {
+          font-size: 2.2rem;
+        }
+
+        .map-header h2,
+        .faq-header h2 {
+          font-size: 2rem;
+        }
+
+        .navbar {
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          transform: none;
+          max-width: none;
+          width: calc(100% - 30px);
+          padding: 10px 20px;
+        }
+
+        .navbar:hover {
+          transform: translateY(-2px);
+        }
+
+        .nav-container {
+          gap: 20px;
+          width: 100%;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 0;
+          right: 0;
+          background: var(--navbar-bg);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-radius: 20px;
+          padding: 20px;
+          flex-direction: column;
+          gap: 10px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--navbar-border);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .nav-links li {
+          width: 100%;
+        }
+
+        .nav-links li a {
+          display: block;
+          text-align: center;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .footer-main {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+        }
+
+        .footer-brand {
+          max-width: none;
+        }
+
+        .footer-social {
+          justify-content: center;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .social-links {
+          grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        }
+
+        .map-iframe {
+          height: 300px;
+        }
       }
     </style>
-=======
-    <title>Contact Us - Professional Digital Solutions</title>
-    <link rel="stylesheet" href="/Styles/contact.css">
-    
->>>>>>> Stashed changes
   </head>
+  <body>
+    <!-- Floating Dots Background -->
+    <div class="floating-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
 
-  <body data-theme="light">
-    <!-- Sticky Floating Navbar -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
-        <!-- Logo -->
         <a href="#" class="logo">
-          <div class="logo-icon"><i class="fa-brands fa-battle-net"></i></div>
+          <span class="logo-icon"><i class="fa-brands fa-battle-net"></i></span>
           <span>Axia</span>
         </a>
-
-        <!-- Navigation Links -->
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links" id="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/pages/services.html">Services</a></li>
           <li><a href="/pages/about.html">About</a></li>
-
-          <li><a href="#" class="active">Contact</a></li>
+          <li><a href="#contact" class="active">Contact</a></li>
         </ul>
-
-        <!-- Mobile Toggle -->
-        <button class="mobile-toggle" id="mobileToggle">☰</button>
-
-        <!-- Dark Mode Toggle -->
-        <button class="dark-mode-toggle" id="darkModeToggle">
-          <i class="fa-regular fa-moon"></i>
+        <div
+          class="desktop-only"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+        <button
+          class="mobile-toggle"
+          id="mobile-toggle"
+          aria-label="Toggle menu"
+        >
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Contact Hero Section -->
-    <section class="contact-hero">
-      <h1>Get In Touch</h1>
-      <p>
-        Ready to start your next project? We'd love to hear from you. Send us a
-        message and we'll respond as soon as possible.
-      </p>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-      <div class="contact-container">
-        <!-- Contact Information -->
-        <div class="contact-info">
-          <!-- Contact Details -->
-          <div class="info-card">
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="info-content">
-                <h3>Our Address</h3>
-                <p>
-                  123 Business Avenue<br />Suite 456<br />New York, NY 10001
-                </p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="info-content">
-                <h3>Phone Number</h3>
-                <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
-                <p><a href="tel:+1234567891">+1 (234) 567-8901</a> (Support)</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="info-content">
-                <h3>Email Address</h3>
-                <p><a href="mailto:hello@brand.com">hello@brand.com</a></p>
-                <p><a href="mailto:support@brand.com">support@brand.com</a></p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="info-content">
-                <h3>Business Hours</h3>
-                <p>
-                  Monday - Friday: 9:00 AM - 6:00 PM<br />
-                  Saturday: 10:00 AM - 4:00 PM<br />
-                  Sunday: Closed
-                </p>
-              </div>
-            </div>
-
-            <!-- Social Media Links -->
-            <div
-              style="
-                margin-top: 30px;
-                padding-top: 25px;
-                border-top: 1px solid var(--border-color);
-              "
-            >
-              <h3 style="margin-bottom: 15px; color: var(--text-color)">
-                Follow Us
-              </h3>
-              <div class="social-links">
-                <a href="#" class="social-link" title="Facebook">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-link" title="Twitter">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-link" title="Instagram">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link" title="LinkedIn">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-link" title="YouTube">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
+    <main>
+      <!-- Contact Hero Section -->
+      <section class="contact-hero" id="contact">
+        <h1>Get In Touch</h1>
+        <p>
+          Ready to bring your digital vision to life? We're here to help you
+          every step of the way. Let's start a conversation about your project
+          today.
+        </p>
+        <div class="hero-cards">
+          <div class="hero-card" onclick="scrollToSection('contact-form')">
+            <i class="fas fa-paper-plane hero-card-icon"></i>
+            <h3>Send Message</h3>
+            <p>Quick and easy contact form</p>
           </div>
-
-          <!-- Google Maps -->
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.5273974707083!2d-74.00369368459418!3d40.74844797932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1642524800000!5m2!1sen!2sus"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+          <div class="hero-card" onclick="scrollToSection('map')">
+            <i class="fas fa-map-marker-alt hero-card-icon"></i>
+            <h3>Visit Us</h3>
+            <p>Find our location</p>
+          </div>
+          <div class="hero-card" onclick="scrollToSection('faq')">
+            <i class="fas fa-question-circle hero-card-icon"></i>
+            <h3>FAQ</h3>
+            <p>Common questions answered</p>
           </div>
         </div>
+      </section>
 
-        <!-- Contact Form -->
-        <div class="contact-form-container">
-          <div class="form-header">
-            <h2>Send us a Message</h2>
-            <p>
-              Fill out the form below and we'll get back to you within 24 hours.
-            </p>
-          </div>
-
-          <form class="contact-form" id="contactForm">
-            <!-- Name and Email Row -->
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="John"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Doe"
-                  required
-                />
-              </div>
+      <!-- Main Contact Section -->
+      <section class="contact-main" id="contact-form">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-section">
+            <div class="form-header">
+              <h2>Send Us a Message</h2>
+              <p>
+                Fill out the form below and we'll get back to you within 24
+                hours.
+              </p>
             </div>
 
-            <!-- Email and Phone Row -->
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="john.doe@example.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="+1 (234) 567-8900"
-                />
-              </div>
+            <div class="success-message" id="success-message">
+              <i class="fas fa-check-circle"></i>
+              Thank you! Your message has been sent successfully. We'll get back
+              to you soon.
             </div>
 
-            <!-- Company and Subject Row -->
-            <div class="form-row">
-              <div class="form-group">
-                <label for="company">Company/Organization</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  placeholder="Your Company Name"
-                />
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject *</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="How can we help you?"
-                  required
-                />
-              </div>
-            </div>
-
-            <!-- Service and Priority Row -->
-            <div class="form-row">
-              <div class="form-group">
-                <label for="service">Service Interested In</label>
-                <select id="service" name="service">
-                  <option value="">Select a service</option>
-                  <option value="web-design">Web Design</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="mobile-app">Mobile App Development</option>
-                  <option value="digital-marketing">Digital Marketing</option>
-                  <option value="seo">SEO Optimization</option>
-                  <option value="consulting">Business Consulting</option>
-                  <option value="support">Technical Support</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="priority">Priority Level</label>
-                <select id="priority" name="priority">
-                  <option value="low">
-                    Low Priority
-                    <span class="priority-badge priority-low">🟢 Low</span>
-                  </option>
-                  <option value="medium">
-                    Medium Priority
-                    <span class="priority-badge priority-medium"
-                      >🟡 Medium</span
-                    >
-                  </option>
-                  <option value="high">
-                    High Priority
-                    <span class="priority-badge priority-high">🔴 High</span>
-                  </option>
-                  <option value="urgent">
-                    Urgent
-                    <span class="priority-badge priority-high">🚨 Urgent</span>
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Budget Range -->
-            <div class="form-group">
-              <label for="budget">Project Budget Range</label>
-              <select id="budget" name="budget">
-                <option value="">Select budget range</option>
-                <option value="under-5k">Under $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-50k">$25,000 - $50,000</option>
-                <option value="50k-100k">$50,000 - $100,000</option>
-                <option value="over-100k">Over $100,000</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-
-            <!-- Message -->
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Tell us about your project, goals, timeline, and any specific requirements you have. The more details you provide, the better we can assist you."
-                required
-                rows="5"
-              >
-              </textarea>
-              <div
-                style="
-                  text-align: right;
-                  margin-top: 5px;
-                  font-size: 0.85rem;
-                  color: var(--text-secondary);
-                "
-              >
-                <span id="charCount">0</span>/1000 characters
-              </div>
-            </div>
-
-            <!-- File Upload -->
-            <div class="form-group">
-              <label>Attach Files (Optional)</label>
-              <div class="file-upload" id="fileUpload">
-                <input
-                  type="file"
-                  id="fileInput"
-                  multiple
-                  accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif"
-                />
-                <div class="file-upload-icon">📎</div>
-                <div class="file-upload-text">
-                  <strong>Click to upload</strong> or drag and drop<br />
-                  <small>PDF, DOC, TXT, Images (Max 10MB per file)</small>
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-group half">
+                <div>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name *"
+                    required
+                  />
+                  <div class="form-error" id="firstName-error">
+                    Please enter your first name
+                  </div>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name *"
+                    required
+                  />
+                  <div class="form-error" id="lastName-error">
+                    Please enter your last name
+                  </div>
                 </div>
               </div>
-              <div class="file-list" id="fileList"></div>
-            </div>
 
-            <!-- Newsletter Subscription -->
-            <div class="form-group">
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-                  cursor: pointer;
-                "
-              >
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-input"
+                  id="email"
+                  name="email"
+                  placeholder="Email Address *"
+                  required
+                />
+                <div class="form-error" id="email-error">
+                  Please enter a valid email address
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="tel"
+                  class="form-input"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone Number"
+                />
+                <div class="form-error" id="phone-error">
+                  Please enter a valid phone number
+                </div>
+              </div>
+
+              <div class="form-group">
+                <select
+                  class="form-select"
+                  id="subject"
+                  name="subject"
+                  required
+                >
+                  <option value="">Select Subject *</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="design">UI/UX Design</option>
+                  <option value="marketing">Digital Marketing</option>
+                  <option value="support">Technical Support</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="form-error" id="subject-error">
+                  Please select a subject
+                </div>
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  class="form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Your Message *"
+                  rows="5"
+                  required
+                ></textarea>
+                <div class="form-error" id="message-error">
+                  Please enter your message (minimum 10 characters)
+                </div>
+              </div>
+
+              <div class="form-checkbox">
                 <input
                   type="checkbox"
+                  class="checkbox-input"
                   id="newsletter"
                   name="newsletter"
-                  style="width: auto; margin: 0"
                 />
-                <span>Subscribe to our newsletter for updates and tips</span>
-              </label>
-            </div>
+                <label for="newsletter" class="checkbox-label">
+                  Subscribe to our newsletter for updates and insights
+                </label>
+              </div>
 
-            <!-- Privacy Policy -->
-            <div class="form-group">
-              <label
-                style="
-                  display: flex;
-                  align-items: flex-start;
-                  gap: 10px;
-                  cursor: pointer;
-                "
-              >
+              <div class="form-checkbox">
                 <input
                   type="checkbox"
+                  class="checkbox-input"
                   id="privacy"
                   name="privacy"
                   required
-                  style="width: auto; margin: 0; margin-top: 3px"
                 />
-                <span style="font-size: 0.9rem; line-height: 1.4">
+                <label for="privacy" class="checkbox-label">
                   I agree to the
                   <a
                     href="#"
@@ -840,25 +1425,197 @@
                     >Terms of Service</a
                   >
                   *
-                </span>
-              </label>
+                </label>
+                <div class="form-error" id="privacy-error">
+                  Please accept our privacy policy
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn" id="submit-btn">
+                <span id="btn-text">Send Message</span>
+                <i class="fas fa-paper-plane" id="btn-icon"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info-section">
+            <!-- Contact Details -->
+            <div class="contact-info-card">
+              <h3><i class="fas fa-address-book"></i> Contact Information</h3>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Phone</div>
+                  <div class="contact-item-value">
+                    <a href="tel:+85512345678">+855 12 345 678</a>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value">
+                    <a href="mailto:info@axiadigital.com"
+                      >info@axiadigital.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Address</div>
+                  <div class="contact-item-value">
+                    Acleda University of Business<br />
+                    Phnom Penh, Cambodia
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Business Hours</div>
+                  <div class="contact-item-value">
+                    Mon - Fri: 8:00 AM - 6:00 PM<br />
+                    Sat: 9:00 AM - 4:00 PM
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn" id="submitBtn">
-              <span id="btnText">Send Message</span>
-              <i
-                id="btnIcon"
-                class="fas fa-paper-plane"
-                style="margin-left: 8px"
-              ></i>
-            </button>
-          </form>
+            <!-- Office Hours -->
+            <div class="contact-info-card">
+              <h3><i class="fas fa-calendar-alt"></i> Schedule a Meeting</h3>
+              <div class="contact-item">
+                <i class="fas fa-video"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Video Call</div>
+                  <div class="contact-item-value">
+                    <a href="#" onclick="openScheduler('video')"
+                      >Book a video consultation</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-coffee"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">In-Person</div>
+                  <div class="contact-item-value">
+                    <a href="#" onclick="openScheduler('person')"
+                      >Schedule an office visit</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div class="contact-item-content">
+                  <div class="contact-item-label">Phone Call</div>
+                  <div class="contact-item-value">
+                    <a href="#" onclick="openScheduler('phone')"
+                      >Request a callback</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="contact-info-card social-media-card">
+              <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+              <div class="social-links">
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Facebook"
+                  target="_blank"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Twitter"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Instagram"
+                  target="_blank"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="YouTube"
+                  target="_blank"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="GitHub"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-<<<<<<< Updated upstream
-      </div>
-    </section>
-=======
+      </section>
+
+      <!-- Map Section -->
+      <section class="map-section" id="map">
+        <div class="map-header">
+          <h2>Visit Our Office</h2>
+          <p>
+            Located at Acleda University of Business in the heart of Phnom Penh
+          </p>
+        </div>
+        <div class="map-container">
+          <!-- <iframe
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7945565806343!2d104.91863831435898!3d11.568107291848635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095173d7a86c27%3A0x4467e5b0c9a6c5fc!2sACLEDA%20University%20of%20Business!5e0!3m2!1sen!2skh!4v1703123456789!5m2!1sen!2skh"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Acleda University of Business Location"
+          >
+          </iframe> -->
+          <iframe
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.9203427398716!2d104.85443537614452!3d11.629026442886916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109527b5a6c6599%3A0x947e61c3ff00c21d!2sACLEDA%20University%20of%20Business!5e0!3m2!1sen!2skh!4v1755406948040!5m2!1sen!2skh"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Acleda University of Business Location"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq">
+        <div class="faq-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find answers to common questions about our services and process</p>
+        </div>
       </section>
 
       <!-- Map Section -->
@@ -887,7 +1644,6 @@
           <h2>Frequently Asked Questions</h2>
           <p>Find answers to common questions about our services and process</p>
         </div>
-
         <div class="faq-accordion" id="faq-accordion">
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFAQ(this)">
@@ -1008,31 +1764,37 @@
         </div>
       </section>
     </main>
->>>>>>> Stashed changes
-
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-main">
-          <!-- Brand Column -->
           <div class="footer-brand">
             <a href="#" class="logo">
-              <div class="logo-icon">B</div>
-              <span>Brand</span>
+              <div class="logo-icon">
+                <i class="fa-brands fa-battle-net"></i>
+              </div>
+              <span>Axia</span>
             </a>
             <p>
               We help ambitious teams and individuals create exceptional digital
               experiences that drive growth and lasting impact.
             </p>
             <div class="footer-social">
-              <a href="#" class="social-link">📘</a>
-              <a href="#" class="social-link">🐦</a>
-              <a href="#" class="social-link">📷</a>
-              <a href="#" class="social-link">💼</a>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Company Column -->
           <div class="footer-column">
             <h4>Company</h4>
             <ul>
@@ -1044,7 +1806,6 @@
             </ul>
           </div>
 
-          <!-- Services Column -->
           <div class="footer-column">
             <h4>Services</h4>
             <ul>
@@ -1056,7 +1817,6 @@
             </ul>
           </div>
 
-          <!-- Resources Column -->
           <div class="footer-column">
             <h4>Resources</h4>
             <ul>
@@ -1068,45 +1828,86 @@
             </ul>
           </div>
 
-          <!-- Newsletter Column -->
           <div class="footer-column">
-            <h4>Stay Updated</h4>
-            <p
-              style="
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 0.9rem;
-                margin-bottom: 15px;
-              "
-            >
-              Subscribe to our newsletter for the latest updates and insights.
+            <h4>Contact</h4>
+            <p>Acleda University of Business<br />Phnom Penh, Cambodia</p>
+            <p>Phone: <a href="tel:+85512345678">+855 12 345 678</a></p>
+            <p>
+              Email:
+              <a href="mailto:info@axiadigital.com">info@axiadigital.com</a>
             </p>
-            <div class="newsletter-form">
-              <input
-                type="email"
-                class="newsletter-input"
-                placeholder="Enter your email"
-              />
-              <button class="newsletter-btn">Subscribe</button>
-            </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2024 Brand. All rights reserved.</p>
+          <p>&copy; 2025 Axia Digital Solutions. All rights reserved.</p>
           <div class="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
             <a href="#">Cookie Policy</a>
-            <a href="#">Contact</a>
           </div>
         </div>
       </div>
     </footer>
-<<<<<<< Updated upstream
-
-    <script src="contactjs.js"></script>
-=======
     <script src="/js/contact.js"></script>
->>>>>>> Stashed changes
+
+    <!-- Additional CSS for animations and enhancements -->
+    <style>
+      .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .focused {
+        position: relative;
+      }
+
+      .character-counter {
+        transition: color 0.3s ease;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        ::before,
+        ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Focus styles for better accessibility */
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus,
+      .submit-btn:focus,
+      .faq-question:focus {
+        outline: 2px solid var(--primary-medium);
+        outline-offset: 2px;
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --border-color: #000000;
+          --text-secondary: #000000;
+        }
+
+        [data-theme="dark"] {
+          --border-color: #ffffff;
+          --text-secondary: #ffffff;
+        }
+      }
+    </style>
   </body>
 </html>

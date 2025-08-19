@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,47 +11,848 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="/Styles/mainStyle.css" />
     <title>About Us - Axia</title>
-=======
-    <title>About Us - Axia Digital Solutions</title>
-    <link rel="stylesheet" href="/styles/about.css" />
+    <style>
+      :root {
+        --primary-dark: #0d1b2a; /* Deep navy */
+        --primary-medium: #1b263b; /* Dark slate blue */
+        --primary-light: #415a77; /* Slate blue */
+        --primary-lightest: #778da9; /* Soft blue-gray */
+        --primary-accent: #e0e1dd; /* Off-white / highlight */
+      }
 
->>>>>>> Stashed changes
+      /* Dark mode */
+      [data-theme="dark"] {
+        --bg-color: #0d1b2a;
+        --text-color: #e0e1dd;
+        --text-secondary: #778da9;
+        --navbar-bg: rgba(224, 225, 221, 0.05);
+        --navbar-border: rgba(224, 225, 221, 0.15);
+        --gradient-bg: linear-gradient(
+          135deg,
+          #1b263b 0%,
+          #0d1b2a 50%,
+          #415a77 100%
+        );
+        --card-bg: rgba(224, 225, 221, 0.04);
+        --input-bg: rgba(224, 225, 221, 0.08);
+        --border-color: rgba(224, 225, 221, 0.12);
+        --nav-link-hover-bg: rgba(224, 225, 221, 0.1);
+        --nav-link-active-bg: rgba(224, 225, 221, 0.15);
+      }
+
+      /* Light mode */
+      [data-theme="light"] {
+        --bg-color: #f0f2f5;
+        --text-color: #0d1b2a;
+        --text-secondary: #415a77;
+        --navbar-bg: rgba(255, 255, 255, 0.5);
+        --navbar-border: rgba(13, 27, 42, 0.1);
+        --gradient-bg: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f0f2f5 50%,
+          #e0e1dd 100%
+        );
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --input-bg: rgba(255, 255, 255, 0.95);
+        --border-color: rgba(13, 27, 42, 0.12);
+        --nav-link-hover-bg: rgba(13, 27, 42, 0.05);
+        --nav-link-active-bg: rgba(13, 27, 42, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Noto Sans", sans-serif;
+        line-height: 1.6;
+        background: var(--gradient-bg);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Floating Dots Background */
+      .floating-dots {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        animation: float-dots 12s ease-in-out infinite;
+        opacity: 0;
+        background: var(--primary-light);
+      }
+
+      .dot:nth-child(1) {
+        width: 8px;
+        height: 8px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .dot:nth-child(2) {
+        width: 6px;
+        height: 6px;
+        top: 60%;
+        left: 20%;
+        animation-delay: 2s;
+      }
+      .dot:nth-child(3) {
+        width: 10px;
+        height: 10px;
+        top: 30%;
+        right: 15%;
+        animation-delay: 4s;
+      }
+      .dot:nth-child(4) {
+        width: 7px;
+        height: 7px;
+        top: 70%;
+        right: 30%;
+        animation-delay: 1s;
+      }
+      .dot:nth-child(5) {
+        width: 9px;
+        height: 9px;
+        top: 15%;
+        left: 50%;
+        animation-delay: 3s;
+      }
+      .dot:nth-child(6) {
+        width: 5px;
+        height: 5px;
+        top: 80%;
+        left: 70%;
+        animation-delay: 5s;
+      }
+      .dot:nth-child(7) {
+        width: 4px;
+        height: 4px;
+        top: 25%;
+        left: 75%;
+        animation-delay: 1.5s;
+      }
+      .dot:nth-child(8) {
+        width: 6px;
+        height: 6px;
+        top: 45%;
+        left: 5%;
+        animation-delay: 3.5s;
+      }
+      .dot:nth-child(9) {
+        width: 8px;
+        height: 8px;
+        top: 85%;
+        left: 25%;
+        animation-delay: 2.5s;
+      }
+      .dot:nth-child(10) {
+        width: 5px;
+        height: 5px;
+        top: 10%;
+        right: 40%;
+        animation-delay: 4.5s;
+      }
+
+      @keyframes float-dots {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+          opacity: 0;
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-10px) translateX(-15px);
+          opacity: 0.5;
+        }
+        75% {
+          transform: translateY(-30px) translateX(5px);
+          opacity: 0.7;
+        }
+      }
+
+      /* Sticky Navbar */
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navbar-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 50px;
+        padding: 12px 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--navbar-border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        max-width: 90vw;
+        width: fit-content;
+      }
+      .navbar:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .logo:hover {
+        transform: scale(1.05);
+      }
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-medium)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        align-items: center;
+      }
+      .nav-links li a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .nav-links li a:hover {
+        color: var(--text-color);
+        background: var(--nav-link-hover-bg);
+        transform: translateY(-1px);
+      }
+      .nav-links li a.active {
+        color: var(--text-color);
+        background: var(--nav-link-active-bg);
+      }
+      .dark-mode-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+      }
+      .dark-mode-toggle:hover {
+        background: var(--nav-link-hover-bg);
+        transform: scale(1.1);
+        color: var(--text-color);
+      }
+      .dark-mode-toggle .fa-sun {
+        display: none;
+      }
+      .dark-mode-toggle .fa-moon {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-sun {
+        display: block;
+      }
+      [data-theme="dark"] .dark-mode-toggle .fa-moon {
+        display: none;
+      }
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: var(--text-color);
+      }
+      .mobile-only {
+        display: none;
+      }
+
+      /* Main Content Styles */
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 120px 20px 60px;
+      }
+      .section {
+        margin-bottom: 80px;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text-color);
+      }
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto 50px;
+      }
+
+      /* Hero Section */
+      .about-hero {
+        text-align: center;
+        padding: 40px 0;
+      }
+      .about-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      .about-hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--text-secondary);
+      }
+
+      /* Mission/Vision Section */
+      .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .mission-card {
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .mission-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      }
+      .mission-card .icon {
+        font-size: 2.5rem;
+        color: var(--primary-light);
+        margin-bottom: 20px;
+      }
+      .mission-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      .mission-card p {
+        color: var(--text-secondary);
+      }
+
+      /* Team Section */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .team-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        text-align: center;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      .team-card-img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+      .team-card-body {
+        padding: 25px;
+      }
+      .team-card-body h4 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+      }
+      .team-card-body .role {
+        color: var(--primary-light);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .team-card-body .bio {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+      .team-socials {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .team-socials a {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+      }
+      .team-socials a:hover {
+        color: var(--primary-dark);
+        transform: scale(1.2);
+      }
+      [data-theme="dark"] .team-socials a:hover {
+        color: var(--primary-lightest);
+      }
+
+      /* Timeline Section */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--border-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+        border-radius: 2px;
+      }
+      .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      .timeline-container.left {
+        left: 0;
+      }
+      .timeline-container.right {
+        left: 50%;
+      }
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--bg-color);
+        border: 4px solid var(--primary-light);
+        top: 22px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-container.right::after {
+        left: -10px;
+      }
+      .timeline-content {
+        padding: 20px 30px;
+        background-color: var(--card-bg);
+        position: relative;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+      .timeline-content h3 {
+        margin-bottom: 10px;
+      }
+      .timeline-content p {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+      .timeline-date {
+        font-weight: 600;
+        color: var(--primary-light);
+        margin-bottom: 5px;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 5;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-brand {
+        max-width: 300px;
+      }
+      .footer-brand .logo {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+      .footer-brand .logo-icon {
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+      }
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+      .footer-social {
+        display: flex;
+        gap: 15px;
+      }
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+      .social-link:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+      .footer-column h4 {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-column li {
+        margin-bottom: 12px;
+      }
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+      }
+      .footer-column a:hover {
+        color: var(--primary-light);
+        padding-left: 5px;
+      }
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+      }
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .newsletter-btn {
+        padding: 12px 24px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary-medium)
+        );
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 178, 191, 0.3);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      .footer-bottom-links {
+        display: flex;
+        gap: 30px;
+      }
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+      .footer-bottom-links a:hover {
+        color: var(--primary-light);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .footer-main {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+        .about-hero h1 {
+          font-size: 2.5rem;
+        }
+        .about-hero p {
+          font-size: 1.1rem;
+        }
+        .timeline::after {
+          left: 15px;
+        }
+        .timeline-container {
+          width: 100%;
+          padding-left: 50px;
+          padding-right: 15px;
+        }
+        .timeline-container.right {
+          left: 0%;
+        }
+        .timeline-container.left::after,
+        .timeline-container.right::after {
+          left: 5px;
+        }
+
+        .navbar {
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          transform: none;
+          max-width: none;
+          width: calc(100% - 30px);
+          padding: 10px 20px;
+        }
+        .navbar:hover {
+          transform: translateY(-2px);
+        }
+        .nav-container {
+          gap: 20px;
+          width: 100%;
+        }
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 0;
+          right: 0;
+          background: var(--navbar-bg);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-radius: 20px;
+          padding: 20px;
+          flex-direction: column;
+          gap: 10px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--navbar-border);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+        .nav-links.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        .nav-links li {
+          width: 100%;
+        }
+        .nav-links li a {
+          display: block;
+          text-align: center;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+        .desktop-only {
+          display: none !important;
+        }
+        .mobile-only {
+          display: block;
+        }
+
+        .footer-main {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+        }
+        .footer-brand {
+          max-width: none;
+        }
+        .footer-social {
+          justify-content: center;
+        }
+        .newsletter-form {
+          flex-direction: column;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+
   </head>
   <body>
-    <!-- Transition Overlay -->
-    <div class="transition-overlay"></div>
+    <!-- Floating Dots Background -->
+    <div class="floating-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
 
-    <!-- Sticky Floating Navbar -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
-        <!-- Logo -->
-        <a href="/index.html" class="logo">
-          <div class="logo-icon"><i class="fa-brands fa-battle-net"></i></div>
+        <a href="#" class="logo">
+          <span class="logo-icon"><i class="fa-brands fa-battle-net"></i></span>
           <span>Axia</span>
         </a>
-
-        <!-- Navigation Links -->
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links" id="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/pages/services.html">Services</a></li>
           <li><a href="#" class="active">About</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
+          <li
+            class="mobile-only"
+            style="width: 100%; text-align: center; margin-top: 10px"
+          >
+            <button
+              class="dark-mode-toggle"
+              id="mobile-dark-mode-toggle"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
         </ul>
-
-        <!-- Mobile Toggle -->
-        <button class="mobile-toggle" id="mobileToggle">☰</button>
-
-        <!-- Dark Mode Toggle -->
-        <button class="dark-mode-toggle" id="darkModeToggle">
-          <i class="fa-regular fa-moon"></i>
+        <div
+          class="desktop-only"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="dark-mode-toggle"
+            id="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+        <button
+          class="mobile-toggle"
+          id="mobile-toggle"
+          aria-label="Toggle menu"
+        >
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
+
 
     <!-- About Hero Section -->
     <section class="about-hero">
@@ -73,15 +874,6 @@
           revolutionize the digital landscape. We've since grown into a thriving
           company, helping businesses of all sizes achieve their goals.
         </p>
-<<<<<<< Updated upstream
-      </div>
-      <div class="info-block">
-        <h2>Our Mission</h2>
-        <p>
-          Our mission is to empower our clients to succeed in the digital world
-          by providing them with innovative and effective solutions. We believe
-          in the power of technology to transform businesses and lives.
-=======
         <div class="team-grid">
           <!-- Team Member 1 -->
           <div class="team-card">
@@ -206,150 +998,220 @@
         <p class="section-subtitle">
           A timeline of our growth, challenges, and achievements. Every
           milestone marks a step forward in our story.
->>>>>>> Stashed changes
-        </p>
-      </div>
-      <div class="info-block">
-        <h2>Our Vision</h2>
         <p>
-          Our vision is to be a global leader in digital innovation, known for
-          our creativity, integrity, and commitment to excellence. We aspire to
-          create a future where technology and humanity coexist in harmony.
+          We are a passionate team of creators, strategists, and innovators
+          dedicated to building digital experiences that matter. Our journey is
+          one of collaboration, growth, and a relentless pursuit of excellence.
         </p>
-      </div>
-    </section>
+      </section>
+      <!-- Mission, Vision, History Section -->
+      <section class="section">
+        <div class="mission-grid">
+          <div class="mission-card">
+            <div class="icon"><i class="fas fa-rocket"></i></div>
+            <h3>Our Mission</h3>
+            <p>
+              To empower businesses with transformative digital solutions that
+              are not only innovative but also intuitive, driving growth and
+              creating lasting value for our clients and their customers.
+            </p>
+          </div>
+          <div class="mission-card">
+            <div class="icon"><i class="fas fa-eye"></i></div>
+            <h3>Our Vision</h3>
+            <p>
+              To be a leading digital agency recognized for our creativity,
+              strategic thinking, and commitment to pushing the boundaries of
+              what's possible on the web and beyond.
+            </p>
+          </div>
+          <div class="mission-card">
+            <div class="icon"><i class="fas fa-history"></i></div>
+            <h3>Our History</h3>
+            <p>
+              Founded in 2020, Axia started as a small team with a big idea.
+              We've since grown into a full-service agency, helping businesses
+              of all sizes navigate the digital landscape.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Team Section -->
+      <section class="section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle">
+          The brilliant minds turning ideas into reality. We're a diverse group
+          of designers, developers, and dreamers.
+        </p>
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <img src="/images/cheata.png" width="300px" />
+            <div class="team-card-body">
+              <h4>Choun Theachumnith</h4>
+              <p class="role">Founder & CEO</p>
+              <p class="bio">
+                Jane is the visionary behind Axia, guiding the company with
+                passion and a deep understanding of the digital world.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <img src="/images/chumnith.png " width="300px" />
+            <div class="team-card-body">
+              <h4>John Smith</h4>
+              <p class="role">Lead Developer</p>
+              <p class="bio">
+                John is a coding maestro who turns complex problems into
+                elegant, high-performance digital solutions.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <img src="/images/mony.png" width="300px" />
+            <div class="team-card-body">
+              <h4>Emily White</h4>
+              <p class="role">Creative Director</p>
+              <p class="bio">
+                Emily's artistic vision and keen eye for design ensure every
+                project we touch is both beautiful and user-friendly.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="Dribbble"
+                  ><i class="fab fa-dribbble"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <img src="/images/ratana.png" width="300px" />
+            <div class="team-card-body">
+              <h4>Chris Green</h4>
+              <p class="role">Marketing Strategist</p>
+              <p class="bio">
+                Chris connects our clients with their audiences through
+                data-driven strategies that deliver measurable results.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 5 -->
+          <div class="team-card">
+            <img src="/images/seth.png " width="300px" />
+            <div class="team-card-body">
+              <h4>Alex Ray</h4>
+              <p class="role">Project Manager</p>
+              <p class="bio">
+                Alex keeps our projects on track and ensures seamless
+                communication between our team and our clients.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Team Member 5 -->
+          <div class="team-card">
+            <img src="/images/sopheak.png " width="300px" />
+            <div class="team-card-body">
+              <h4>Alex Ray</h4>
+              <p class="role">Project Manager</p>
+              <p class="bio">
+                Alex keeps our projects on track and ensures seamless
+                communication between our team and our clients.
+              </p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Team Members Section -->
-    <section class="team-section">
-      <h2>Meet Our Team</h2>
-      <div class="team-grid">
-        <!-- Team Member 1 -->
-        <div class="team-card">
-          <div class="team-card-badge leader">Leader Team</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 1"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">John Doe</h3>
-          <p class="team-card-school">University of Example</p>
-          <p class="team-card-bio">
-            John is our visionary leader, with a passion for innovation and a
-            drive for excellence.
-          </p>
+      <!-- Achievements/Milestones Section -->
+      <section class="section">
+        <h2 class="section-title">Our Journey</h2>
+        <p class="section-subtitle">
+          A timeline of our growth, challenges, and achievements. Every
+          milestone marks a step forward in our story.
+        </p>
+        <div class="timeline">
+          <div class="timeline-container left">
+            <div class="timeline-content">
+              <p class="timeline-date">2020</p>
+              <h3>The Beginning</h3>
+              <p>
+                Axia was founded in a small garage with a big dream: to create
+                better digital experiences for everyone.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-container right">
+            <div class="timeline-content">
+              <p class="timeline-date">2021</p>
+              <h3>First Major Client</h3>
+              <p>
+                Landed our first enterprise-level client, proving our
+                capabilities and setting the stage for future growth.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-container left">
+            <div class="timeline-content">
+              <p class="timeline-date">2023</p>
+              <h3>Team Expansion</h3>
+              <p>
+                Our team grew to over 15 talented individuals, bringing diverse
+                skills and perspectives to our projects.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-container right">
+            <div class="timeline-content">
+              <p class="timeline-date">2024</p>
+              <h3>Award-Winning Design</h3>
+              <p>
+                Received the "Digital Innovation Award" for our work on a
+                groundbreaking e-commerce platform.
+              </p>
+            </div>
+          </div>
         </div>
-        <!-- Team Member 2 -->
-        <div class="team-card">
-          <div class="team-card-badge stylist">Stylist</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 2"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">Jane Smith</h3>
-          <p class="team-card-school">School of Design</p>
-          <p class="team-card-bio">
-            Jane is our creative genius, with an eye for detail and a flair for
-            beautiful design.
-          </p>
-        </div>
-        <!-- Team Member 3 -->
-        <div class="team-card">
-          <div class="team-card-badge member">Team Member</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 3"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">Peter Jones</h3>
-          <p class="team-card-school">Institute of Technology</p>
-          <p class="team-card-bio">
-            Peter is our tech guru, with a knack for solving complex problems
-            and building robust systems.
-          </p>
-        </div>
-        <!-- Team Member 4 -->
-        <div class="team-card">
-          <div class="team-card-badge member">Team Member</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 4"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">Mary Williams</h3>
-          <p class="team-card-school">Business College</p>
-          <p class="team-card-bio">
-            Mary is our strategic thinker, with a talent for marketing and a
-            passion for growth.
-          </p>
-        </div>
-        <!-- Team Member 5 -->
-        <div class="team-card">
-          <div class="team-card-badge member">Team Member</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 5"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">David Brown</h3>
-          <p class="team-card-school">State University</p>
-          <p class="team-card-bio">
-            David is our project manager, with a focus on efficiency and a
-            commitment to quality.
-          </p>
-        </div>
-        <!-- Team Member 6 -->
-        <div class="team-card">
-          <div class="team-card-badge member">Team Member</div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Team Member 6"
-            class="team-card-img"
-          />
-          <h3 class="team-card-name">Susan Davis</h3>
-          <p class="team-card-school">Community College</p>
-          <p class="team-card-bio">
-            Susan is our customer champion, with a dedication to providing
-            exceptional service.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Achievements/Milestones Section -->
-    <section class="achievements-section">
-      <h2>Our Achievements</h2>
-      <div class="achievements-grid">
-        <div class="achievement-card">
-          <h3>2021</h3>
-          <p>
-            Launched our first major project, helping a startup secure $1M in
-            funding.
-          </p>
-        </div>
-        <div class="achievement-card">
-          <h3>2022</h3>
-          <p>
-            Expanded our team to 20+ members and opened a new office in New
-            York.
-          </p>
-        </div>
-        <div class="achievement-card">
-          <h3>2023</h3>
-          <p>
-            Won the "Digital Innovation of the Year" award for our work on a
-            groundbreaking mobile app.
-          </p>
-        </div>
-        <div class="achievement-card">
-          <h3>2024</h3>
-          <p>
-            Reached 1 million users on our flagship platform and partnered with
-            several Fortune 500 companies.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -358,26 +1220,26 @@
           <!-- Brand Column -->
           <div class="footer-brand">
             <a href="#" class="logo">
-              <div class="logo-icon">B</div>
-              <span>Brand</span>
+              <div class="logo-icon">AX</div>
+              <span>Axia</span>
             </a>
             <p>
               We help ambitious teams and individuals create exceptional digital
               experiences that drive growth and lasting impact.
             </p>
             <div class="footer-social">
-              <a href="#" class="social-link">
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-link">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-              <a href="#" class="social-link">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" class="social-link">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
+              <a href="#" class="social-link" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
           </div>
 
@@ -420,143 +1282,30 @@
           <!-- Newsletter Column -->
           <div class="footer-column">
             <h4>Stay Updated</h4>
-            <p
-              style="
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 0.9rem;
-                margin-bottom: 15px;
-              "
-            >
+            <p>
               Subscribe to our newsletter for the latest updates and insights.
             </p>
-            <div class="newsletter-form">
+            <form class="newsletter-form" onsubmit="return false;">
               <input
                 type="email"
                 class="newsletter-input"
                 placeholder="Enter your email"
               />
-              <button class="newsletter-btn">Subscribe</button>
-            </div>
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2024 Brand. All rights reserved.</p>
+          <p>&copy; 2025 Axia. All rights reserved.</p>
           <div class="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
             <a href="#">Cookie Policy</a>
-            <a href="#">Contact</a>
           </div>
         </div>
       </div>
     </footer>
-
-<<<<<<< Updated upstream
-    <script>
-      // Dark Mode Toggle Functionality
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const body = document.body;
-
-      // Check for saved theme preference or default to light mode
-      const currentTheme = localStorage.getItem("theme") || "light";
-      body.setAttribute("data-theme", currentTheme);
-
-      // Update toggle button icon
-      function updateToggleIcon(theme) {
-        darkModeToggle.innerHTML =
-          theme === "dark"
-            ? '<i class="fas fa-sun"></i>'
-            : '<i class="fa-regular fa-moon"></i>';
-      }
-
-      updateToggleIcon(currentTheme);
-
-      darkModeToggle.addEventListener("click", () => {
-        const currentTheme = body.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-        body.classList.add("transitioning");
-
-        setTimeout(() => {
-          body.setAttribute("data-theme", newTheme);
-          localStorage.setItem("theme", newTheme);
-          updateToggleIcon(newTheme);
-
-          // Update navbar background immediately
-          const navbar = document.querySelector(".navbar");
-          if (window.scrollY > 100) {
-            if (newTheme === "dark") {
-              navbar.style.background = "rgba(255, 255, 255, 0.15)";
-              navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.3)";
-            } else {
-              navbar.style.background = "rgba(255, 255, 255, 0.95)";
-              navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.15)";
-            }
-          } else {
-            navbar.style.background =
-              newTheme === "dark"
-                ? "rgba(255, 255, 255, 0.1)"
-                : "rgba(0, 0, 0, 0.1)";
-          }
-        }, 250); // Halfway through the transition
-
-        setTimeout(() => {
-          body.classList.remove("transitioning");
-        }, 500); // Match the transition duration
-      });
-
-      // Mobile menu toggle functionality
-      const mobileToggle = document.getElementById("mobileToggle");
-      const navLinks = document.getElementById("navLinks");
-
-      mobileToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
-      // Close mobile menu when clicking on a link
-      navLinks.addEventListener("click", (e) => {
-        if (e.target.tagName === "A") {
-          // Prevent default only if the link's href is '#'
-          if (e.target.getAttribute("href") === "#") {
-            e.preventDefault();
-          }
-          navLinks.classList.remove("active");
-        }
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".navbar")) {
-          navLinks.classList.remove("active");
-        }
-      });
-
-      // Add scroll effect to navbar
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        const currentTheme = body.getAttribute("data-theme");
-
-        if (window.scrollY > 100) {
-          if (currentTheme === "dark") {
-            navbar.style.background = "rgba(255, 255, 255, 0.15)";
-            navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.3)";
-          } else {
-            navbar.style.background = "rgba(255, 255, 255, 0.95)";
-            navbar.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.15)";
-          }
-        } else {
-          navbar.style.background =
-            currentTheme === "dark"
-              ? "rgba(255, 255, 255, 0.1)"
-              : "rgba(0, 0, 0, 0.1)";
-          navbar.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.1)";
-        }
-      });
-=======
     <script src="/js/about.js"></script>
-
->>>>>>> Stashed changes
-    </script>
   </body>
 </html>
