@@ -25,21 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
     setTheme("light");
   }
 
-  desktopToggle.addEventListener("click", toggleTheme);
-  mobileToggleBtn.addEventListener("click", toggleTheme);
+  if (desktopToggle) {
+    desktopToggle.addEventListener("click", toggleTheme);
+  }
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener("click", toggleTheme);
+  }
 
-  // --- Mobile Navigation Toggle ---
   const mobileMenuToggle = document.getElementById("mobile-toggle");
   const navLinks = document.getElementById("nav-links");
 
-  mobileMenuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    const icon = mobileMenuToggle.querySelector("i");
-    if (navLinks.classList.contains("active")) {
-      icon.classList.remove("fa-bars");
-      icon.classList.add("fa-times");
-    } else {
-      icon.classList.remove("fa-times");
-      icon.classList.add("fa-bars");
-    }
+  if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = mobileMenuToggle.querySelector("i");
+      if (navLinks.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+      } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  }
 });
