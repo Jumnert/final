@@ -302,7 +302,7 @@ body {
 }
 .section {
   margin-bottom: 80px;
-  padding: 0 25em;
+  padding: 0 10px;
 }
 .section-title {
   text-align: center;
@@ -333,6 +333,7 @@ body {
 .about-hero p {
   font-size: 1.2rem;
   max-width: 800px;
+  padding: 2px;
   margin: 0 auto;
   color: var(--text-secondary);
 }
