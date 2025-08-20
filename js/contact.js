@@ -666,3 +666,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+/* add google sheet */
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const successMessage = document.getElementById("success-message");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default submission
+
+    // Collect form data
+    const formData = {
+      firstName: document.getElementById("firstName").value.trim(),
+      lastName: document.getElementById("lastName").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value.trim(),
+      newsletter: document.getElementById("newsletter").checked,
+      privacy: document.getElementById("privacy").checked,
+    };
+
+    // Basic validation
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message ||
+      !formData.privacy
+    ) {
+      alert(
+        "Please fill in all required fields and accept the privacy policy."
+      );
+      return;
+    }
+
+    // Send data to Google Sheets via Web App
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwDjIvmgCsHXpOvjVJ4e-S3YLm8CQ0Uv2xdbu_yeICboF4pggIOW7lG7cHVaIDNiMaozA/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result === "success") {
+          successMessage.style.display = "block";
+          form.reset();
+        } else {
+          console.error("Server error:", data.error);
+          alert("There was an error sending your message. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        alert("There was an error sending your message. Please try again.");
+      });
+  });
+});
