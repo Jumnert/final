@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
-      entries.forEach((entry) => {
+      entries.forEach((entry) => 
         if (entry.isIntersecting) {
           const statNumbers = entry.target.querySelectorAll(".stat-number");
           statNumbers.forEach((num) => animateCount(num));
